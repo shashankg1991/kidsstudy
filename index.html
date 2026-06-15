@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harvard Bound — 5-Year Prep Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --crimson: #A51C30;
+  --crimson-dark: #7a1422;
+  --crimson-light: #f5e6e9;
+  --gold: #C9A84C;
+  --gold-light: #faf3e0;
+  --ink: #1a1a1a;
+  --ink-muted: #555;
+  --ink-faint: #888;
+  --paper: #fafaf8;
+  --paper-warm: #f4f1ea;
+  --white: #ffffff;
+  --border: #e5e2db;
+  --border-strong: #c8c4bc;
+  --success: #2d6a4f;
+  --success-bg: #eaf5ef;
+  --kinder-color: #2563eb;
+  --kinder-bg: #eff6ff;
+  --grade3-color: #7c3aed;
+  --grade3-bg: #f3eeff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,250,248,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--crimson);
+  letter-spacing: 0.01em;
+}
+.nav-links { display: flex; gap: 1.5rem; }
+.nav-links a {
+  font-size: 13px; font-weight: 500;
+  color: var(--ink-muted); text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--crimson); }
+
+/* HERO */
+.hero {
+  background: var(--ink);
+  color: var(--white);
+  padding: 6rem 2rem 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(165,28,48,0.35) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+.hero-sub {
+  font-size: 1.1rem; font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  max-width: 580px; margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+.hero-disclaimer {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  max-width: 460px; margin: 0 auto;
+  line-height: 1.6;
+}
+.hero-stats {
+  display: flex; justify-content: center; gap: 3rem;
+  margin: 2.5rem 0;
+  flex-wrap: wrap;
+}
+.hero-stat { text-align: center; }
+.hero-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; font-weight: 700;
+  color: var(--gold);
+  display: block;
+}
+.hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; text-transform: uppercase; }
+
+/* SECTION */
+section { padding: 5rem 2rem; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  letter-spacing: -0.015em;
+}
+.section-intro {
+  font-size: 1rem; color: var(--ink-muted);
+  max-width: 640px; margin-bottom: 3rem;
+  line-height: 1.75;
+}
+
+/* PHILOSOPHY STRIP */
+.philosophy {
+  background: var(--crimson);
+  color: white;
+  padding: 4rem 2rem;
+}
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1100px; margin: 0 auto;
+}
+.phil-item {}
+.phil-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; font-weight: 900;
+  color: rgba(255,255,255,0.15);
+  line-height: 1; margin-bottom: 0.5rem;
+}
+.phil-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+.phil-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.65; }
+
+/* KID SELECTOR */
+.kid-selector {
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  position: sticky; top: 60px; z-index: 90;
+}
+.kid-tabs {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; gap: 0;
+}
+.kid-tab {
+  padding: 1rem 2rem;
+  font-size: 14px; font-weight: 500;
+  cursor: pointer; border: none; background: none;
+  border-bottom: 3px solid transparent;
+  color: var(--ink-muted);
+  transition: all 0.2s;
+  display: flex; align-items: center; gap: 8px;
+}
+.kid-tab.active { color: var(--crimson); border-bottom-color: var(--crimson); }
+.kid-tab-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.kinder-dot { background: var(--kinder-color); }
+.grade3-dot { background: var(--grade3-color); }
+
+/* YEAR TIMELINE */
+.year-timeline { overflow-x: auto; padding-bottom: 0.5rem; }
+.year-track {
+  display: flex; gap: 12px;
+  min-width: max-content;
+  margin-bottom: 2rem;
+}
+.year-btn {
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 13px; font-weight: 500;
+  cursor: pointer; border: 1.5px solid var(--border);
+  background: var(--white);
+  color: var(--ink-muted);
+  transition: all 0.2s; white-space: nowrap;
+}
+.year-btn.active {
+  background: var(--crimson);
+  border-color: var(--crimson);
+  color: white;
+}
+
+/* YEAR CARD */
+.year-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+}
+.year-card-header {
+  padding: 2rem 2rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start;
+}
+.year-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--crimson-light);
+  color: var(--crimson);
+}
+.year-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.year-card-theme { font-size: 13px; color: var(--ink-muted); }
+.coach-tip {
+  background: var(--gold-light);
+  border-left: 3px solid var(--gold);
+  padding: 0.85rem 1.25rem;
+  margin: 1.5rem 2rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 13px;
+  color: #5a4a1a;
+  line-height: 1.65;
+}
+.coach-tip strong { font-weight: 600; }
+
+/* FOCUS AREAS */
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  margin: 0 0 1px;
+}
+.focus-item {
+  background: var(--white);
+  padding: 1.5rem 2rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.focus-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.focus-title { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+.focus-detail { font-size: 12px; color: var(--ink-muted); line-height: 1.6; }
+
+/* BOOKS */
+.books-section {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--border);
+}
+.books-label {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-faint); margin-bottom: 1rem;
+}
+.books-grid {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.book-chip {
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: var(--paper-warm);
+  border: 1px solid var(--border);
+  color: var(--ink-muted);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.book-chip::before { content: '📚'; font-size: 10px; }
+
+/* MILESTONES */
+.milestones-section {
+  padding: 1.5rem 2rem 2rem;
+  border-top: 1px solid var(--border);
+}
+.milestone-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 8px;
+}
+.milestone-item {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 10px 12px;
+  background: var(--success-bg);
+  border-radius: var(--radius);
+  font-size: 13px; color: #1a4a30;
+}
+.milestone-check {
+  width: 18px; height: 18px;
+  border: 2px solid var(--success);
+  border-radius: 4px;
+  flex-shrink: 0; margin-top: 1px;
+}
+
+/* DAILY PLANNER */
+.planner-section {
+  background: var(--paper-warm);
+  border-top: 1px solid var(--border);
+}
+.planner-controls {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 2rem; align-items: flex-end;
+}
+.planner-control label {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-muted); display: block;
+  margin-bottom: 5px;
+}
+.planner-control select {
+  padding: 8px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  min-width: 140px;
+  cursor: pointer;
+}
+
+/* SCHEDULE */
+.schedule-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.schedule-header {
+  background: var(--ink);
+  color: white;
+  padding: 1.25rem 1.75rem;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+}
+.schedule-day-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem; font-weight: 700;
+}
+.schedule-meta { font-size: 12px; color: rgba(255,255,255,0.55); }
+.schedule-type-badge {
+  font-size: 11px; padding: 4px 12px;
+  border-radius: 20px; font-weight: 500;
+  letter-spacing: 0.05em;
+}
+.badge-school { background: rgba(201,168,76,0.2); color: var(--gold); }
+.badge-weekend { background: rgba(165,28,48,0.2); color: #ff8095; }
+
+.schedule-body { padding: 0; }
+.schedule-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  border-bottom: 1px solid var(--border);
+}
+.schedule-row:last-child { border-bottom: none; }
+.schedule-time {
+  padding: 1rem 1.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--ink-faint);
+  border-right: 1px solid var(--border);
+  display: flex; align-items: flex-start;
+  padding-top: 1.1rem;
+  line-height: 1.4;
+  background: var(--paper-warm);
+}
+.schedule-act {
+  padding: 1rem 1.25rem;
+}
+.schedule-act-name {
+  font-size: 14px; font-weight: 600;
+  margin-bottom: 3px;
+}
+.schedule-act-detail {
+  font-size: 12px; color: var(--ink-muted);
+  line-height: 1.55;
+}
+.schedule-act-tag {
+  display: inline-block;
+  font-size: 10px; padding: 2px 8px;
+  border-radius: 4px; margin-top: 5px;
+  font-weight: 500;
+}
+
+/* PARENT GUIDE */
+.parent-guide {
+  background: var(--ink);
+  color: white;
+  padding: 5rem 2rem;
+}
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem; margin-top: 3rem;
+}
+.guide-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+}
+.guide-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+.guide-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+.guide-text { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+/* RESOURCES */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.resource-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.resource-type {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--crimson); margin-bottom: 0.75rem;
+}
+.resource-title { font-size: 15px; font-weight: 600; margin-bottom: 0.5rem; }
+.resource-list { list-style: none; }
+.resource-list li {
+  font-size: 13px; color: var(--ink-muted);
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.resource-list li:last-child { border-bottom: none; }
+.resource-list li::before { content: '→'; color: var(--crimson); flex-shrink: 0; font-size: 12px; margin-top: 1px; }
+
+/* FOOTER */
+footer {
+  background: var(--paper-warm);
+  border-top: 1px solid var(--border);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--crimson); margin-bottom: 0.75rem;
+}
+.footer-note { font-size: 12px; color: var(--ink-faint); max-width: 480px; margin: 0 auto; line-height: 1.65; }
+
+/* HIDDEN */
+.kid-section { display: none; }
+.kid-section.active { display: block; }
+
+/* UTIL */
+.text-crimson { color: var(--crimson); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+@media (max-width: 700px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero-stats { gap: 1.5rem; }
+  .nav-links { display: none; }
+  .schedule-row { grid-template-columns: 90px 1fr; }
+  .year-card-header { grid-template-columns: 1fr; }
+}
+
+/* COLOR VARIANTS */
+.icon-crimson { background: var(--crimson-light); color: var(--crimson); }
+.icon-blue { background: #eff6ff; color: #1d4ed8; }
+.icon-green { background: #f0fdf4; color: #166534; }
+.icon-purple { background: #f5f3ff; color: #6d28d9; }
+.icon-amber { background: #fffbeb; color: #92400e; }
+.icon-teal { background: #f0fdfa; color: #0f766e; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Harvard Bound</div>
+  <div class="nav-links">
+    <a href="#philosophy">Philosophy</a>
+    <a href="#plans">5-Year Plans</a>
+    <a href="#daily">Daily Schedule</a>
+    <a href="#resources">Resources</a>
+    <a href="#parents">Parent Guide</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">A 5-year preparation roadmap · Ottawa, Canada</div>
+  <h1>Two children.<br><em>One destination.</em></h1>
+  <p class="hero-sub">A day-by-day, year-by-year academic and personal development plan for a kindergartner and a Grade 3 student — built around the habits, skills, and achievements that elite universities reward.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-num">5</span><span class="hero-stat-label">Years</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">1,825</span><span class="hero-stat-label">Days × 2 kids</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">6–8</span><span class="hero-stat-label">Daily sessions</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">1hr</span><span class="hero-stat-label">Parent time/day</span></div>
+  </div>
+  <p class="hero-disclaimer">Note: No plan can guarantee university admission — Harvard acceptance is holistic and highly competitive. What this plan guarantees is that your children will develop the skills, habits, character, and achievements that give them the strongest possible foundation for any path they choose.</p>
+</div>
+
+<!-- PHILOSOPHY -->
+<div class="philosophy" id="philosophy">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold);">The Framework</div>
+    <h2 class="section-title" style="color:white;margin-bottom:2.5rem;">What Harvard actually selects for</h2>
+    <div class="philosophy-grid">
+      <div class="phil-item">
+        <div class="phil-num">01</div>
+        <div class="phil-title">Academic excellence</div>
+        <div class="phil-text">Top grades and test scores are the floor, not the ceiling. This plan builds children 1–2 grade levels ahead in every core subject.</div>
+      </div>
+      <div class="phil-item">
+        <div class="phil-num">02</div>
+        <div class="phil-title">A "spike" of passion</div>
+        <div class="phil-text">Harvard wants students remarkable in one area, not just well-rounded. We identify and develop each child's deep interest from Year 2 onward.</div>
+      </div>
+      <div class="phil-item">
+        <div class="phil-num">03</div>
+        <div class="phil-title">Leadership & service</div>
+        <div class="phil-text">Initiating projects, leading teams, and contributing to community — not just joining clubs. Built into every weekend from Year 1.</div>
+      </div>
+      <div class="phil-item">
+        <div class="phil-num">04</div>
+        <div class="phil-title">Character & resilience</div>
+        <div class="phil-text">Growth mindset, failure tolerance, self-advocacy. These are explicitly assessed in Harvard's admissions essays and interviews.</div>
+      </div>
+      <div class="phil-item">
+        <div class="phil-num">05</div>
+        <div class="phil-title">Love of learning</div>
+        <div class="phil-text">The most powerful predictor of long-term academic success. Every session in this plan prioritizes curiosity over compliance.</div>
+      </div>
+      <div class="phil-item">
+        <div class="phil-num">06</div>
+        <div class="phil-title">Your 1-hour role</div>
+        <div class="phil-text">You are the coach — not the teacher. Your job is to create the environment, ask great questions, and celebrate growth. The plan does the rest.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KID SELECTOR -->
+<div class="kid-selector" id="plans">
+  <div class="kid-tabs">
+    <button class="kid-tab active" onclick="switchKid('kinder')" id="tab-kinder">
+      <span class="kid-tab-dot kinder-dot"></span>
+      Kindergartner — Age 5 (now)
+    </button>
+    <button class="kid-tab" onclick="switchKid('grade3')" id="tab-grade3">
+      <span class="kid-tab-dot grade3-dot"></span>
+      Grade 3 Student — Age 8 (now)
+    </button>
+  </div>
+</div>
+
+<!-- PLANS SECTION -->
+<section>
+<div class="container">
+
+<!-- KINDERGARTNER -->
+<div class="kid-section active" id="kid-kinder">
+  <div class="section-label">Kindergartner · Ages 5–10</div>
+  <h2 class="section-title">Five years from curious to exceptional</h2>
+  <p class="section-intro">For a kindergartner, the mission is clear: build a child who loves learning so deeply that academic excellence becomes inevitable. The first two years are entirely play-based. Years 3–5 introduce structured enrichment, competition, and creative output.</p>
+
+  <div class="year-timeline">
+    <div class="year-track">
+      <button class="year-btn active" onclick="showYear('kinder',1,this)">Year 1 · Age 5–6</button>
+      <button class="year-btn" onclick="showYear('kinder',2,this)">Year 2 · Age 6–7</button>
+      <button class="year-btn" onclick="showYear('kinder',3,this)">Year 3 · Age 7–8</button>
+      <button class="year-btn" onclick="showYear('kinder',4,this)">Year 4 · Age 8–9</button>
+      <button class="year-btn" onclick="showYear('kinder',5,this)">Year 5 · Age 9–10</button>
+    </div>
+  </div>
+
+  <div id="kinder-year-content"></div>
+</div>
+
+<!-- GRADE 3 -->
+<div class="kid-section" id="kid-grade3">
+  <div class="section-label">Grade 3 Student · Ages 8–13</div>
+  <h2 class="section-title">From grade-level to exceptional in five years</h2>
+  <p class="section-intro">A Grade 3 student can begin serious academic acceleration immediately. The goal is to be doing Grade 10-level work by the end of Year 5 — placing them perfectly for IB/AP enrollment, which is Harvard's true pipeline.</p>
+
+  <div class="year-timeline">
+    <div class="year-track">
+      <button class="year-btn active" onclick="showYear('grade3',1,this)">Year 1 · Age 8–9</button>
+      <button class="year-btn" onclick="showYear('grade3',2,this)">Year 2 · Age 9–10</button>
+      <button class="year-btn" onclick="showYear('grade3',3,this)">Year 3 · Age 10–11</button>
+      <button class="year-btn" onclick="showYear('grade3',4,this)">Year 4 · Age 11–12</button>
+      <button class="year-btn" onclick="showYear('grade3',5,this)">Year 5 · Age 12–13</button>
+    </div>
+  </div>
+
+  <div id="grade3-year-content"></div>
+</div>
+
+</div>
+</section>
+
+<!-- DAILY PLANNER -->
+<div class="planner-section" id="daily">
+<section>
+<div class="container">
+  <div class="section-label">Day-by-Day</div>
+  <h2 class="section-title">Daily schedule explorer</h2>
+  <p class="section-intro">Every day of the year has a structure. Weekdays are school-focused with 90 min of enrichment. Weekends are project, competition, and deep learning days. Select any combination below.</p>
+
+  <div class="planner-controls">
+    <div class="planner-control">
+      <label>Child</label>
+      <select id="plan-kid" onchange="renderSchedule()">
+        <option value="kinder">Kindergartner</option>
+        <option value="grade3">Grade 3</option>
+      </select>
+    </div>
+    <div class="planner-control">
+      <label>Year</label>
+      <select id="plan-year" onchange="renderSchedule()">
+        <option value="1">Year 1</option><option value="2">Year 2</option>
+        <option value="3">Year 3</option><option value="4">Year 4</option><option value="5">Year 5</option>
+      </select>
+    </div>
+    <div class="planner-control">
+      <label>Day type</label>
+      <select id="plan-day" onchange="renderSchedule()">
+        <option value="weekday">Weekday (School)</option>
+        <option value="saturday">Saturday</option>
+        <option value="sunday">Sunday</option>
+      </select>
+    </div>
+    <div class="planner-control">
+      <label>Season</label>
+      <select id="plan-season" onchange="renderSchedule()">
+        <option value="fall">Fall (Sep–Dec)</option>
+        <option value="winter">Winter (Jan–Mar)</option>
+        <option value="spring">Spring (Apr–Jun)</option>
+        <option value="summer">Summer (Jul–Aug)</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="schedule-output"></div>
+</div>
+</section>
+</div>
+
+<!-- RESOURCES -->
+<section id="resources">
+<div class="container">
+  <div class="section-label">Toolkit</div>
+  <h2 class="section-title">Books, tools & programs</h2>
+  <p class="section-intro">Curated by age, subject, and purpose. Every resource here has been selected because it builds genuine skills — not busywork.</p>
+
+  <div style="margin-bottom:1.5rem;">
+    <div class="year-track" style="flex-wrap:wrap;min-width:auto;">
+      <button class="year-btn active" onclick="showResources('kinder_early',this)">Kinder: Years 1–2</button>
+      <button class="year-btn" onclick="showResources('kinder_mid',this)">Kinder: Years 3–4</button>
+      <button class="year-btn" onclick="showResources('kinder_late',this)">Kinder: Year 5</button>
+      <button class="year-btn" onclick="showResources('grade3_early',this)">Grade 3: Years 1–2</button>
+      <button class="year-btn" onclick="showResources('grade3_mid',this)">Grade 3: Years 3–4</button>
+      <button class="year-btn" onclick="showResources('grade3_late',this)">Grade 3: Year 5</button>
+    </div>
+  </div>
+
+  <div id="resources-output"></div>
+</div>
+</section>
+
+<!-- PARENT GUIDE -->
+<div class="parent-guide" id="parents">
+<div class="container">
+  <div class="section-label" style="color:var(--gold);">For parents</div>
+  <h2 class="section-title" style="color:white;">Your 1-hour daily playbook</h2>
+  <p class="section-intro" style="color:rgba(255,255,255,0.6);">You are the coach, not the teacher. Here's exactly how to spend your one hour in a way that multiplies everything else.</p>
+
+  <div class="guide-grid">
+    <div class="guide-card">
+      <div class="guide-icon">🌅</div>
+      <div class="guide-title">Morning (15 min)</div>
+      <div class="guide-text">Over breakfast: ask one big question ("What makes something fair?"), share a word of the day, pose a math puzzle. Activate their brain before school. This 15 minutes sets the intellectual tone for the entire day.</div>
+    </div>
+    <div class="guide-card">
+      <div class="guide-icon">📖</div>
+      <div class="guide-title">After-school check-in (10 min)</div>
+      <div class="guide-text">Ask: "What's one thing you were curious about today?" and "What's one thing that was hard?" Never just "how was school?" Document wins in a shared achievement log. Celebrate effort over outcome, always.</div>
+    </div>
+    <div class="guide-card">
+      <div class="guide-icon">🍽️</div>
+      <div class="guide-title">Dinner conversation (20 min)</div>
+      <div class="guide-text">This is your highest-leverage time. Debate a current event, discuss a book chapter, share discoveries. Harvard students are exceptional conversationalists — it starts at the dinner table, years before applications.</div>
+    </div>
+    <div class="guide-card">
+      <div class="guide-icon">🌙</div>
+      <div class="guide-title">Bedtime ritual (15 min)</div>
+      <div class="guide-text">Read together. Ask 3 gratitude items. For Grade 3: review their achievement log and set one goal for tomorrow. Sleep is critical for learning consolidation — protect it fiercely. Target 9–10 hours.</div>
+    </div>
+    <div class="guide-card">
+      <div class="guide-icon">📊</div>
+      <div class="guide-title">Weekly review (Sunday, 15 min)</div>
+      <div class="guide-text">What milestones moved? What needs more focus? Update their "brag folder" with new achievements. Preview the coming week together. Make them feel like partners in their own development — not passengers.</div>
+    </div>
+    <div class="guide-card">
+      <div class="guide-icon">🚨</div>
+      <div class="guide-title">What to avoid</div>
+      <div class="guide-text">Never criticize effort. Never compare siblings. Never let screen entertainment replace reading time. Never skip the bedtime routine. Never prioritize grades over curiosity. Burnout is the only way this plan fails.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Harvard Bound</div>
+  <p class="footer-note">This plan was built for two children in Ottawa, Canada. Adjust for your local curriculum, French immersion opportunities, and available extracurricular programs. The destination is Harvard — the journey belongs entirely to your children.</p>
+</footer>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────────────────────
+
+const years = {
+  kinder: [
+    {
+      label: 'Building blocks — love of learning',
+      theme: 'Curiosity, phonics, number sense, play-based everything',
+      tip: 'Everything is a game. If it feels like homework, you\'re doing it wrong. A child who loves learning at age 5 will move mountains at age 18.',
+      focuses: [
+        { icon: '📖', cls: 'icon-blue', title: 'Reading & phonics', detail: 'Letter sounds, blending CVC words, Dolch sight words list 1 (pre-primer + primer). Read-alouds 20 min/day. Child reads to a stuffed animal each night.' },
+        { icon: '🔢', cls: 'icon-green', title: 'Number sense', detail: 'Counting to 120, addition/subtraction within 20, shapes & patterns, measurement with non-standard units, calendar math every morning.' },
+        { icon: '🌿', cls: 'icon-teal', title: 'Science curiosity', detail: 'Nature walks with magnifying glass, weekly experiment (baking soda + vinegar, oil & water, magnets). Plant seeds and track growth. Ask WHY constantly.' },
+        { icon: '🌍', cls: 'icon-amber', title: 'World awareness', detail: 'Globe on the shelf. Name 7 continents, Canada\'s provinces, animals by habitat. Read about one new country each month.' },
+        { icon: '🎨', cls: 'icon-purple', title: 'Arts & expression', detail: 'Drawing journal (1 page daily), music (sing nursery rhymes, learn rhythm with clapping), drama & storytelling, building with LEGO & blocks.' },
+        { icon: '💛', cls: 'icon-crimson', title: 'Social-emotional', detail: 'Name and regulate emotions, empathy practice, growth mindset books, nightly gratitude (3 things). Introduce the concept: mistakes = learning.' },
+      ],
+      books: ['The Very Hungry Caterpillar — Carle', 'Dragons Love Tacos — Rubin', 'Ada Twist Scientist — Beaty', 'Pete the Cat I Love My White Shoes', 'Rosie Revere Engineer — Beaty', 'Gruffalo — Donaldson', 'Where the Wild Things Are — Sendak', 'Elephant & Piggie series — Willems', 'Amelia Bedelia series', 'Nate the Great series'],
+      milestones: ['Read 50 sight words aloud', 'Add & subtract within 20', 'Write 3-sentence story with picture', 'Complete one science experiment solo', 'Name all 7 continents', 'Recite a full poem from memory']
+    },
+    {
+      label: 'Growing reader & thinker',
+      theme: 'Reading fluency, early writing, math facts, first language',
+      tip: 'Introduce 15-min silent reading every day, child-chosen books only. Start a Discovery Journal — draw + write one new thing learned each day. This habit, sustained for 5 years, is transformative.',
+      focuses: [
+        { icon: '📚', cls: 'icon-blue', title: 'Reading fluency', detail: 'Decodable readers → early chapter books (Fly Guy, Biscuit series). Dolch list 2. Comprehension: retell, predict, connect. Reading log with 1-sentence reaction.' },
+        { icon: '✏️', cls: 'icon-purple', title: 'Writing', detail: 'Daily journal (3–5 sentences). Descriptive writing: use colour, sound, feeling words. Proper punctuation. End of year: write and illustrate a 5-page original book.' },
+        { icon: '➕', cls: 'icon-green', title: 'Math facts', detail: 'Addition/subtraction within 100. Skip counting by 2, 5, 10, 100. Intro multiplication concept (groups of). Telling time, coin values, simple graphing.' },
+        { icon: '🔬', cls: 'icon-teal', title: 'Science method', detail: 'Introduce hypothesis → observe → conclude. Monthly experiment. Topics: weather, animals, plants, matter. Keep a proper lab notebook.' },
+        { icon: '🇫🇷', cls: 'icon-amber', title: 'French (Ottawa advantage)', detail: 'Ottawa = French immersion opportunity. 15 min/day: Bonjour monde, numbers 1–100, colour words, classroom vocabulary. Duolingo Kids or apps. 100 words by June.' },
+        { icon: '🤝', cls: 'icon-crimson', title: 'Leadership seeds', detail: 'Join one activity: swimming, soccer, art class, gymnastics. Practice presenting (show & tell at home). Assign one household responsibility they own fully.' },
+      ],
+      books: ['Fly Guy series — Arnold', 'Junie B. Jones series — Park', 'Magic Tree House series — Osborne', 'Mercy Watson series — DiCamillo', 'Owl at Home — Lobel', 'Stuart Little — White', 'Charlotte\'s Web — White (read together)', 'My Father\'s Dragon — Gannett', 'Henry Huggins — Cleary', 'Boxcar Children series'],
+      milestones: ['Read Grade 2 chapter book independently', 'Write a 1-page illustrated story', 'Know multiplication concept to 5×5', '2 science experiments documented in notebook', '50 French words/phrases spoken', 'Memorize & perform a poem']
+    },
+    {
+      label: 'Independent learner',
+      theme: 'Deep reading, structured writing, math fluency, coding',
+      tip: 'Let the child pick ONE topic they\'re fascinated by and do a 2-week deep project on it — report, drawings, experiment, presentation. Passion-driven learning at this age creates lifelong scholars.',
+      focuses: [
+        { icon: '📖', cls: 'icon-blue', title: 'Chapter books & analysis', detail: 'Grade 3–4 level books. Ask: main character motivation, cause & effect, author\'s message. Keep a reading response journal. 30 min reading daily, 50 books/year goal.' },
+        { icon: '📝', cls: 'icon-purple', title: 'Essay writing', detail: 'Introduction → 3 body paragraphs → conclusion. Persuasive essay: "Should kids have homework?" Narrative: personal story. Descriptive: favourite place.' },
+        { icon: '✖️', cls: 'icon-green', title: 'Math mastery', detail: 'Multiplication tables 1–12 (fluency drilled). Long division intro. Fractions (halves, thirds, quarters). Area & perimeter. Story problems daily.' },
+        { icon: '🧪', cls: 'icon-teal', title: 'Science projects', detail: 'Monthly structured experiments. Enter first school science fair. Topics: electricity basics, simple machines, ecosystems. Guest YouTube scientists as inspiration.' },
+        { icon: '💻', cls: 'icon-amber', title: 'Coding intro', detail: 'Scratch.mit.edu: 30 min/week. Create: animated story, simple game, music maker. Learn: sequence, loops, events. By June: 3 complete Scratch projects done.' },
+        { icon: '🎵', cls: 'icon-crimson', title: 'Instrument', detail: 'Piano or violin: start formal lessons. 20 min daily practice minimum. Scales, simple pieces. RCM Grade 1 prep. Music builds math intuition, memory, and discipline.' },
+      ],
+      books: ['Charlotte\'s Web — E.B. White', 'The Lion the Witch and the Wardrobe — Lewis', 'Matilda — Dahl', 'James and the Giant Peach — Dahl', 'Holes — Sachar', 'Little House on the Prairie — Wilder', 'Because of Winn-Dixie — DiCamillo', 'The One and Only Ivan — Applegate', 'Sarah Plain and Tall — MacLachlan', 'My Side of the Mountain — George'],
+      milestones: ['Read 50 books this year (log every one)', 'Write a 3-page research report with headings', 'Fluently recall all multiplication tables', 'Code 3 working Scratch projects', 'Pass RCM Grade 1 exam (or equivalent)', 'Present passion project to family (10 min)']
+    },
+    {
+      label: 'Critical thinker',
+      theme: 'Analysis, pre-algebra, creative output, first competitions',
+      tip: 'Introduce dinner-table philosophy: "Is it ever okay to lie?" "What makes something beautiful?" "Is the environment more important than jobs?" Harvard prizes intellectual courage — it starts here.',
+      focuses: [
+        { icon: '📚', cls: 'icon-blue', title: 'Advanced literacy', detail: 'Grade 5 reading level. Analyse theme, symbolism, point of view. Compare fiction vs. non-fiction treatment of same topic. Read one biography of a person they admire.' },
+        { icon: '✍️', cls: 'icon-purple', title: 'Creative & academic writing', detail: 'Short stories with dialogue. Opinion essays with evidence. Begin citing sources. Edit own work (read aloud to catch errors). Write for the school newsletter.' },
+        { icon: '📐', cls: 'icon-green', title: 'Pre-algebra prep', detail: 'Fractions, decimals, percentages. Ratios & proportions. Negative numbers. Intro to variables: "n + 5 = 12, what is n?" Order of operations (BEDMAS).' },
+        { icon: '🤖', cls: 'icon-amber', title: 'STEM projects', detail: 'Lego Mindstorms or similar robotics kit. Monthly engineering challenge (build tallest tower with 20 spaghetti noodles). Science fair entry — own hypothesis.' },
+        { icon: '🌐', cls: 'icon-teal', title: 'Current events', detail: 'Newsela.com: 10 min/day, one article. Discuss: what is the problem, who is affected, what should happen? Link news to school subjects whenever possible.' },
+        { icon: '🏆', cls: 'icon-crimson', title: 'First competitions', detail: 'Math Kangaroo (March), school spelling bee, local science fair. The goal isn\'t winning — it\'s experiencing preparation, nerves, and grace in both victory and loss.' },
+      ],
+      books: ['Hatchet — Paulsen', 'Island of the Blue Dolphins — O\'Dell', 'Number the Stars — Lowry', 'The Giver — Lowry', 'Bridge to Terabithia — Paterson', 'Esperanza Rising — Ryan', 'Roll of Thunder Hear My Cry — Taylor', 'Tuck Everlasting — Babbitt', 'A Wrinkle in Time — L\'Engle', 'Maniac Magee — Spinelli', 'Who Was series (non-fiction biographies)'],
+      milestones: ['Reading fluently at Grade 6 level', 'Place in or complete one academic competition', 'Solve basic algebraic equations', 'Build one working robot project', 'Give a 5-minute prepared speech to an audience', 'Lead one community service activity']
+    },
+    {
+      label: 'High achiever foundation',
+      theme: 'Excellence, leadership, portfolio, secondary school readiness',
+      tip: 'Begin the "brag folder" — a physical and digital record of every essay, competition result, project, and service activity. Harvard admissions reads a student\'s entire story arc. Start building it now.',
+      focuses: [
+        { icon: '📖', cls: 'icon-blue', title: 'Literature & analysis', detail: 'Middle-grade classics. Theme, symbolism, literary devices. Comparative essays (two books, same theme). Introduce book club format: each week someone leads discussion.' },
+        { icon: '🔍', cls: 'icon-purple', title: 'Research skills', detail: 'Library database use. Evaluating source credibility. Footnotes & bibliography. 5-page research paper on a self-chosen topic. Present findings to family panel.' },
+        { icon: '📊', cls: 'icon-green', title: 'Algebra foundations', detail: 'Variables, linear equations, coordinate graphing, intro statistics, data analysis, probability basics. Khan Academy + Art of Problem Solving Beast Academy.' },
+        { icon: '🧠', cls: 'icon-teal', title: 'Critical thinking', detail: 'Logic puzzles daily. Formal debate (choose a side, argue it, switch sides, argue again). Socratic seminars on books and current events. Philosophy for Children program.' },
+        { icon: '💪', cls: 'icon-amber', title: 'Service & leadership', detail: 'Monthly community service (food bank, park cleanup, tutoring younger kids). Lead a group project at school. Propose and organize one event or initiative themselves.' },
+        { icon: '🏅', cls: 'icon-crimson', title: 'Portfolio & achievements', detail: 'Compile: writing samples, project photos, competition results, service log, music recital recording, art portfolio. This child is now 10 and has a real body of work.' },
+      ],
+      books: ['The Phantom Tollbooth — Juster', 'Ender\'s Game — Card (abridged/discussion)', 'The Watsons Go to Birmingham — Curtis', 'Inside Out and Back Again — Lai', 'The Secret Garden — Burnett', 'Treasure Island — Stevenson', 'Anne of Green Gables — Montgomery', 'Animal Farm — Orwell (discussion with parent)', 'The Outsiders — Hinton', 'I Am Malala — Yousafzai (young readers edition)'],
+      milestones: ['Complete first algebra unit with 85%+ accuracy', 'Write a 5-page cited research paper', 'Lead a community service project with real impact', 'Perform in a music recital (audience of 20+)', 'Enter 3 separate academic competitions', 'Assemble a portfolio with 20+ pieces of work']
+    }
+  ],
+  grade3: [
+    {
+      label: 'Academic acceleration launch',
+      theme: 'Grade 5+ reading, math mastery, writing craft, coding',
+      tip: 'A Grade 3 student can begin serious enrichment immediately. The key insight: acceleration in math and reading does not require more time — it requires better material. Replace grade-level with advanced content from day one.',
+      focuses: [
+        { icon: '📚', cls: 'icon-blue', title: 'Advanced reading — Grade 5+', detail: '30–45 min daily reading. Novels at Grade 5 level (above). Literary analysis: character motivation, plot structure, theme. Reading response journal: 3–5 sentences per chapter. 60 books/year target.' },
+        { icon: '✍️', cls: 'icon-purple', title: 'Writing craft', detail: 'Narrative (story with problem-resolution), expository (explain how something works), persuasive (argue a position with evidence). Revision: draft → peer/parent feedback → revise. Weekly writing, monthly polish.' },
+        { icon: '✖️', cls: 'icon-green', title: 'Math mastery & acceleration', detail: 'All multiplication & division facts to 12×12 (timed fluency). Long division with remainders. Fractions: add/subtract/compare. Geometry: perimeter, area. Word problems daily. Khan Academy Grade 4–5.' },
+        { icon: '🔬', cls: 'icon-teal', title: 'Science deep dives', detail: 'Monthly experiments with proper lab notebook. Topics: physics (forces, motion), chemistry (states of matter, mixtures), biology (ecosystems). Enter school science fair with self-designed experiment.' },
+        { icon: '🌍', cls: 'icon-amber', title: 'Geography & world history', detail: 'All countries and capitals on 6 continents. Canadian history: Indigenous peoples, New France, Confederation. Ancient civilizations: Egypt, Greece, Rome. Weekly geography quiz game.' },
+        { icon: '💻', cls: 'icon-crimson', title: 'Coding foundations', detail: 'Scratch: complete 10 projects (games, animations, stories). Code.org courses through Grade 5 track. Begin typed Python: variables, print(), if/else. 30–45 min coding per week.' },
+      ],
+      books: [
+        'The Lightning Thief — Riordan', 'Hatchet — Paulsen', 'The Giver — Lowry', 'Wonder — Palacio', 'Holes — Sachar', 'Island of the Blue Dolphins — O\'Dell',
+        'A Wrinkle in Time — L\'Engle', 'Number the Stars — Lowry', 'Roll of Thunder Hear My Cry — Taylor', 'Tuck Everlasting — Babbitt',
+        'Who Was Einstein? (biography series)', 'National Geographic Kids encyclopedias', 'Diary of a Young Girl — Frank (abridged)', 'Brown Girl Dreaming — Woodson'
+      ],
+      milestones: ['Read 60 books (log each with a reaction sentence)', 'Write a 3-page persuasive essay on a real issue', 'Score 90%+ on multiplication/division timed tests', 'Complete science fair with written report', 'Code 10 Scratch projects + first Python program', 'Name and locate 150+ countries on blank map']
+    },
+    {
+      label: 'Deep expertise & research skills',
+      theme: 'Pre-algebra, research writing, second language, music',
+      tip: 'Introduce the "passion project" — every Saturday, 45 minutes on something the child has chosen and is obsessed with. Intrinsic motivation is the engine of extraordinary achievement. Your job: fuel it, don\'t steer it.',
+      focuses: [
+        { icon: '📖', cls: 'icon-blue', title: 'Literature study', detail: 'Grade 6–7 novels. Author study: read 3 books by one author, compare style. Genre study: fantasy vs. realistic fiction vs. historical fiction. Lead weekly book club discussion at home.' },
+        { icon: '📄', cls: 'icon-purple', title: 'Research writing', detail: '5-paragraph → multi-page papers. Note-taking from 3+ sources. Paraphrase vs. quote. Bibliography in proper format. Peer editing checklist. Monthly: submit one piece to a school or youth publication.' },
+        { icon: '📐', cls: 'icon-green', title: 'Pre-algebra', detail: 'Fractions, decimals, percentages (fluent operations). Ratios & rates. Proportional reasoning. Intro variables: solve one- and two-step equations. Coordinate plane graphing. Khan Academy Grade 6.' },
+        { icon: '🔭', cls: 'icon-teal', title: 'Scientific method mastery', detail: 'Design original experiments: identify problem → hypothesis → method → data → conclusion. Peer "review" by presenting to parent panel. Topics: child-chosen. Local science fair: aim to place.' },
+        { icon: '🇫🇷', cls: 'icon-amber', title: 'French immersion focus', detail: 'Ottawa context: if not in French immersion, enrol in Saturday French class or online. Target: conversational fluency, 200+ phrases. Grammar: gender, verb conjugation present tense. French movies/shows.' },
+        { icon: '🎹', cls: 'icon-crimson', title: 'Music: RCM pathway', detail: 'Piano or violin: weekly lesson + 25 min daily practice. RCM Grade 2–3 this year. Theory: note reading, rhythm, key signatures. Music develops working memory, pattern recognition, executive function.' },
+      ],
+      books: [
+        'Percy Jackson series complete — Riordan', 'The Dark is Rising — Cooper', 'From the Mixed-Up Files — Konigsburg', 'Esperanza Rising — Ryan', 'Out of My Mind — Draper',
+        'The Breadwinner — Ellis', 'Bud Not Buddy — Curtis', 'Maniac Magee — Spinelli', 'Coraline — Gaiman', 'His Dark Materials Bk 1 — Pullman',
+        'The Watsons Go to Birmingham — Curtis', 'Inside Out Back Again — Lai', 'Refugee — Gratz', 'Malala\'s Magic Pencil — Yousafzai',
+        'A Short History of Nearly Everything (young readers) — Bryson'
+      ],
+      milestones: ['Read at solid Grade 7 level', 'Complete a 5-page cited research paper', 'Solve 2-step algebraic equations consistently', 'Win or place in school science fair', 'Hold a 5-minute French conversation', 'Pass RCM Grade 3 piano/violin exam']
+    },
+    {
+      label: 'Competition & leadership year',
+      theme: 'Algebra I, STEM, competitions, community leadership',
+      tip: 'Competitions are essential, not optional. They teach preparation, pressure management, graceful losing, and the sweet taste of earned achievement. Enter at least 3 this year. Winning is a bonus — the experience is the prize.',
+      focuses: [
+        { icon: '🏆', cls: 'icon-crimson', title: 'Academic competitions', detail: 'AMC 8 (November), Math Kangaroo (March), Science Olympiad Jr., school or regional spelling bee, geography bee, local debate tournament. Calendar: 1 competition per term minimum.' },
+        { icon: '✍️', cls: 'icon-purple', title: 'Advanced writing', detail: 'Literary analysis essays (theme, symbolism, character arc). Research thesis with original argument. Creative writing contest submissions. School newspaper editor or blogger. Monthly: one published piece.' },
+        { icon: '🔢', cls: 'icon-blue', title: 'Algebra I full course', detail: 'Full curriculum: linear equations, inequalities, systems, quadratic basics, graphing, slope, functions. Art of Problem Solving Introduction to Algebra textbook. Aim: complete Algebra I by June.' },
+        { icon: '🤖', cls: 'icon-teal', title: 'STEM & robotics', detail: 'Join a robotics team (FIRST LEGO League for this age). Python: functions, loops, lists, simple projects. Arduino basics: circuit building, sensor projects. Monthly engineering challenge.' },
+        { icon: '👑', cls: 'icon-amber', title: 'Leadership development', detail: 'Run for student council. Lead a team project (science fair team, school event). Organize a fundraiser for a chosen cause. Practice public speaking: Toastmasters Gavel Club Jr. or school equivalent.' },
+        { icon: '❤️', cls: 'icon-green', title: 'Community service', detail: 'Ottawa opportunities: Ottawa Food Bank, CHEO, Community Harvest, Youth Services Bureau volunteer programs. 1–2 sessions/month. Document: hours, role, impact. Target: 50 hours this year.' },
+      ],
+      books: [
+        'The Outsiders — Hinton', 'Animal Farm — Orwell', 'The Secret Garden — Burnett', 'Ender\'s Game — Card', 'The Alchemist — Coelho (discussion)',
+        'I Am Malala — Yousafzai', 'Long Walk to Freedom (young readers) — Mandela', 'Hidden Figures Young Readers — Shetterly', 'The Code Book for Young Readers — Singh',
+        'A Mathematician\'s Lament — Lockhart (excerpts)', 'Surely You\'re Joking Mr. Feynman — Feynman (selected)', 'The Innovators (excerpts) — Isaacson',
+        'Braiding Sweetgrass (youth excerpts) — Kimmerer', 'Zen and the Art of Motorcycle Maintenance — Pirsig (intro chapter, discussion)'
+      ],
+      milestones: ['Place in AMC 8 or Math Kangaroo (top 25%)', 'Complete full Algebra I curriculum', 'Lead an official student council or school initiative', 'Publish writing in school or external publication', 'Complete 50 hours of documented community service', 'Build working Python or Arduino project']
+    },
+    {
+      label: 'High school mindset — deep expertise',
+      theme: 'Geometry, scholarly writing, spike development, global perspective',
+      tip: 'Year 4 is about identifying and committing to the "spike" — the one area where this child will become truly exceptional. Harvard isn\'t looking for well-rounded students. They\'re looking for well-rounded classes made of individually exceptional people.',
+      focuses: [
+        { icon: '📚', cls: 'icon-blue', title: 'High school literature prep', detail: 'Shakespeare intro: A Midsummer Night\'s Dream, Romeo & Juliet (graphic novel first, then text). Classic novels with thematic analysis. AP-level comprehension questions. Annotate texts with sticky notes.' },
+        { icon: '🖊️', cls: 'icon-purple', title: 'Scholarly writing', detail: 'Thesis-driven essays with original argument. Research papers 8–10 pages. Academic citation styles (MLA). Peer critique sessions. Submit to youth academic journals or writing contests nationally.' },
+        { icon: '📐', cls: 'icon-green', title: 'Geometry', detail: 'Formal proofs (two-column and paragraph). All polygon properties. Pythagorean theorem and applications. Coordinate geometry. Circle theorems. Transformations. Trigonometry foundations (SOH-CAH-TOA).' },
+        { icon: '🧠', cls: 'icon-teal', title: 'Philosophy & formal logic', detail: 'Argument structure: premise → conclusion. Logical fallacies. Ethical frameworks: consequentialism, deontology, virtue ethics (simplified). Socratic seminars weekly. Read excerpts from Plato, Aristotle.' },
+        { icon: '⭐', cls: 'icon-amber', title: 'Spike development (deep)', detail: 'Whatever this child\'s passion — science, writing, art, music, math, coding, sport — this year it becomes a serious pursuit. Hours/week double. External mentors, summer programs, competitions at senior level.' },
+        { icon: '🌏', cls: 'icon-crimson', title: 'Global perspective', detail: 'Model UN: research a country, write a position paper, participate in conference. World history: colonialism, World Wars, Cold War, contemporary conflicts. Follow international news weekly.' },
+      ],
+      books: [
+        'To Kill a Mockingbird — Lee', '1984 — Orwell', 'Lord of the Flies — Golding', 'The Great Gatsby — Fitzgerald (intro)',
+        'A Raisin in the Sun — Hansberry', 'Night — Wiesel', 'The Kite Runner — Hosseini (discussion)', 'In Cold Blood (excerpts) — Capote',
+        'A Brief History of Time — Hawking (first 3 chapters)', 'The Selfish Gene (ch 1–3) — Dawkins', 'Thinking Fast and Slow — Kahneman (intro)',
+        'Sapiens — Harari (Part 1)', 'The Art of War — Sun Tzu (with analysis)', 'Meditations — Marcus Aurelius (selected)'
+      ],
+      milestones: ['Analyse a Shakespeare play in a 5-page essay', 'Write a 10-page research paper with original thesis', 'Complete Geometry with 85%+ final assessment', 'Present at Model UN or senior debate tournament', 'Achieve expert-level output in chosen spike area', 'Complete 100 hours of documented community service']
+    },
+    {
+      label: 'Pre-secondary excellence — portfolio capstone',
+      theme: 'Pre-calculus, original research, Harvard-ready portfolio',
+      tip: 'By end of Year 5, this child is 13 and should look like a strong Grade 10 student. If they enter an IB or AP high school program from this foundation, Harvard becomes genuinely attainable. The work is done — now document it.',
+      focuses: [
+        { icon: '📊', cls: 'icon-blue', title: 'Pre-calculus', detail: 'Functions and notation. Exponential & logarithmic functions. Trigonometry: unit circle, identities. Statistics: regression, distributions, z-scores. Probability. Art of Problem Solving Precalculus. AMC 10 prep.' },
+        { icon: '🔬', cls: 'icon-purple', title: 'Original research project', detail: 'Design, conduct, and write up an original study or creative project. Present to a real audience (school, community, online). Target: Regeneron Science Talent Search (future), Sanofi Biogenius, local science fairs at senior level.' },
+        { icon: '🥇', cls: 'icon-crimson', title: 'National competitions', detail: 'AMC 8 → AMC 10. Science Olympiad (Invitational). Reach writing award (Norman Bethune Essay, Governor General\'s, youth writing). Provincial math championships. Documenting every result, place, and score.' },
+        { icon: '🏫', cls: 'icon-green', title: 'High school program planning', detail: 'Research Ottawa\'s IB programs (Colonel By, Nepean), AP programs, and gifted high school options. Summer: apply to elite academic summer programs (Johns Hopkins CTY, Stanford OHS, UWaterloo camps).' },
+        { icon: '🚀', cls: 'icon-teal', title: 'Innovation & entrepreneurship', detail: 'Build something original: app, scientific device, social enterprise, published novel, or art series. Something that didn\'t exist before. Harvard calls this "intellectual vitality" — the most valued trait.' },
+        { icon: '📋', cls: 'icon-amber', title: 'Portfolio compilation', detail: 'Document everything: top 5 essays, 3 research projects, competition results, 200+ service hours record, music recital video, spike achievements, 3 teacher reference letters (start cultivating now), awards list.' },
+      ],
+      books: [
+        'Crime and Punishment — Dostoevsky (first half)', 'The Brothers Karamazov (excerpts) — Dostoevsky', 'One Hundred Years of Solitude — García Márquez (intro)',
+        'The Road — McCarthy (discussion with parent)', 'Hamlet — Shakespeare', 'King Lear (abridged) — Shakespeare',
+        'The Structure of Scientific Revolutions — Kuhn (excerpts)', 'Gödel Escher Bach — Hofstadter (first 3 chapters)', 'The Elegant Universe — Greene',
+        'The Uninhabitable Earth — Wallace-Wells (selected)', 'Between the World and Me — Coates', 'Just Mercy — Stevenson (young readers)',
+        'The Code Breaker — Isaacson', 'Atomic Habits — Clear', 'Range — Epstein'
+      ],
+      milestones: ['Complete Pre-calculus (aim for 90%+)', 'Submit original research to a real external audience', 'Qualify for provincial or national academic competition', 'Secure admission to IB or top AP high school program', 'Complete 200 hours of documented community service', 'Assemble a full Harvard-prep portfolio with 30+ pieces']
+    }
+  ]
+};
+
+const scheduleData = {
+  kinder: {
+    weekday: {
+      fall: [
+        { time: '7:00–7:30', name: 'Morning routine', detail: 'Dress independently, pack school bag, eat breakfast. Practise one life skill per week (tying shoes, making toast, organising bag). Independence = confidence.' },
+        { time: '7:30–7:50', name: 'Morning read-aloud', detail: 'Parent reads 1 picture book. Stop to ask: "What do you think will happen next?" "How does this character feel?" Ask, never tell. 2 questions max.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '8:00 AM', name: 'School (Kindergarten)', detail: 'Full engagement. Raise your hand. Talk to one new friend. Look at something outside and wonder why.', tag: '🏫 School', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '3:30–4:00', name: 'Outdoor free play', detail: 'Unstructured, unsupervised if safe. Gross motor. Nature observation. This is not wasted time — it is essential for executive function development.', tag: '🌿 Outdoor', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '4:00–4:25', name: 'Phonics & reading play', detail: 'Flashcard games, blending CVC words, sight word hunt around the house. Make it silly. Reward effort. Never shame errors.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '4:25–4:45', name: 'Math games', detail: 'Counting bears, number puzzle, LEGO counting, number snakes & ladders. Screen: Prodigy or Khan Academy Kids (20 min max).', tag: '🔢 Math', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '4:45–5:00', name: 'Creative time', detail: 'Drawing journal page, LEGO build, clay, drama play. No specific goal — just making things.', tag: '🎨 Creative', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '6:00–6:30', name: 'Dinner + conversation', detail: 'Parent asks: "Tell me one thing you learned today." "What surprised you?" "What made you laugh?" Growth mindset language: "Your brain grew today."', tag: '💛 Family', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '7:30–7:50', name: 'Bedtime story + 3 gratitudes', detail: 'Parent reads aloud (a slightly challenging book). Child names 3 things they\'re grateful for. Lights out by 8 PM — 10+ hours sleep is non-negotiable for brain development.', tag: '📖 Read', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+      ],
+      winter: [
+        { time: '7:00–7:30', name: 'Morning routine', detail: 'Dress, snow gear packed, bag ready. Winter is perfect for science: why is ice slippery? Why does breath steam? Ask one question every morning.' },
+        { time: '7:30–7:50', name: 'Morning read-aloud', detail: 'Parent reads a winter/science themed book. Discuss predictions, feelings, words. Build vocabulary: "What does \'frigid\' mean? Let\'s feel the window."', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '8:00 AM', name: 'School', detail: 'Engage in circle time, centre activities. Winter learning: snow measurement, temperature tracking on classroom chart.', tag: '🏫 School', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '3:30–4:00', name: 'Outdoor play (bundled!)', detail: 'Ottawa winters are an outdoor science lab. Build snowballs, observe tracks, measure snow depth. Hypothesize: "Will this puddle freeze tonight?"', tag: '🌿 Outdoor', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '4:00–4:25', name: 'Reading practice', detail: 'Read to stuffed animals. Practice phonics game: "I spy something that starts with /tr/." Introduce 5 new sight words this week.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '4:25–4:50', name: 'Math + science combo', detail: 'Count snowflakes in a photo. Measure with a ruler. Group counting (mittens come in pairs — how many pairs in 12 mittens?).', tag: '🔢 Math', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '4:50–5:10', name: 'Creative / crafts', detail: 'Winter art: paper snowflakes (fractions in disguise), collage, painted pinecones, paper-bag puppets for storytelling.', tag: '🎨 Creative', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '6:00–6:30', name: 'Dinner conversation', detail: '"What would you do if you were the mayor of Ottawa in a snowstorm?" Critical thinking through silly questions.', tag: '💛 Family', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '7:30–7:50', name: 'Bedtime story + gratitude', detail: 'Winter books: Owl Moon, Bear Snores On, The Snowy Day. Name 3 gratitudes. 8:00 PM lights out.', tag: '📖 Read', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+      ],
+      spring: [
+        { time: '7:00–7:30', name: 'Morning routine', detail: 'Spring is new beginnings. Plant a seed in a cup together. Assign child to water it daily — responsibility plus science.' },
+        { time: '7:30–7:50', name: 'Read-aloud + spring observation', detail: 'Books about spring, growth, animals waking up. Go outside for 5 min before school to observe one new thing. Sketch it in discovery journal.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '8:00 AM', name: 'School', detail: 'Spring theme activities at school. Ask teacher what they\'re covering in science — reinforce at home this week.', tag: '🏫 School', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '3:30–4:00', name: 'Nature walk', detail: 'Ottawa\'s spring: look for crocuses, birds returning, insects. Keep a "first sightings of spring" list. Practice writing the names of what you find.', tag: '🌿 Outdoor', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '4:00–4:25', name: 'Reading', detail: 'End-of-year review: can they read all Dolch pre-primer and primer sight words? Running record: time them reading a passage. Celebrate growth from September.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '4:25–4:50', name: 'Math review', detail: 'End-of-kindergarten math: count to 120, add within 20, name 2D and 3D shapes. Play Zingo or Sum Swamp board game.', tag: '🔢 Math', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '4:50–5:15', name: 'Garden / science project', detail: 'Tend the seedlings. Measure growth with a ruler. Draw the plant each week. Write 1 sentence about what changed. This is real science.', tag: '🔬 Science', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '6:30', name: 'Dinner conversation', detail: '"If you could invent a machine to help plants grow faster, what would it do?" Imagination feeds innovation.', tag: '💛 Family', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '7:30–7:50', name: 'Bedtime story + gratitude', detail: 'Spring books: The Giving Tree, When Spring Comes, Miss Rumphius. 3 gratitudes. Reflect on year\'s growth together.', tag: '📖 Read', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+      ],
+      summer: [
+        { time: '8:00–8:30', name: 'Slow morning', detail: 'Summer is for consolidation and joy. No rush. Eat a relaxed breakfast. Read the news headlines together (Kindersley Children\'s Encyclopedia, not Twitter).' },
+        { time: '8:30–9:00', name: 'Reading (independent + aloud)', detail: 'Summer reading challenge: library card, choose own books, track on a chart. 20 min silent + 15 min parent read-aloud. Ottawa Public Library has an excellent summer challenge.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '9:00–9:30', name: 'Math games / outdoor math', detail: 'Measuring with tape measures, cooking math (half a cup + half a cup), sidewalk chalk number activities. Math should feel like summer play.', tag: '🔢 Math', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '10:00–12:00', name: 'Free outdoor play', detail: 'Rideaux River, Gatineau Park trails, local parks. Physical play = brain development. Let them be bored. Boredom creates creativity.' },
+        { time: '2:00–3:00', name: 'Creative project time', detail: 'Summer project: make a book about your family, build a fairy garden, create a comic strip, record a nature video. Something with a beginning and end.', tag: '🎨 Creative', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '3:00–4:00', name: 'Camp or enrichment', detail: 'Ottawa summer camps: Ottawa Chinese Community Service Centre camps, Museum of Nature, Canada Science & Technology Museum, Carleton U summer programs.', tag: '🏕️ Camp', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '7:30–7:50', name: 'Bedtime story', detail: 'Never skip this, even in summer. Read 1 grade above current level. Child follows along pointing at words. 8:00 bedtime maintained.', tag: '📖 Read', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+      ]
+    },
+    saturday: {
+      fall: [
+        { time: '8:00–8:30', name: 'Slow start + discussion', detail: 'Breakfast together. Parent shares one interesting fact ("Did you know Canada has 10% of the world\'s fresh water?"). Child asks 3 questions about it. Model intellectual curiosity.', tag: '💛 Family', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '8:30–9:30', name: 'Enrichment activity', detail: 'Year 1: Ottawa Public Library storytime + borrow 5 books | Year 2: art class or museum visit | Year 3: coding club or robotics | Year 4–5: math competition prep or debate.', tag: '⭐ Enrichment', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '9:30–10:15', name: 'Reading + comprehension', detail: 'Independent reading (child-chosen). After: parent asks 3 questions about the book. No right or wrong — encourage interpretation and opinion.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '10:15–11:00', name: 'Math exploration games', detail: 'Board games: Monopoly Jr, Sum Swamp, Zingo, Sleeping Queens (math & memory). Online: Prodigy, Khan Academy Kids. Goal: make math feel like Saturday fun.', tag: '🔢 Math', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '11:00–12:00', name: 'Outdoor adventure', detail: 'Ottawa is extraordinary: Gatineau Park trails, Rideau River shoreline, Brewer Park, the Arboretum. Bring a nature notebook. Identify 3 things you\'ve never seen before.', tag: '🌿 Outdoor', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '2:00–3:00', name: 'Monthly project time', detail: 'Rotating monthly projects: Oct = Halloween costume design+sew | Nov = build a birdfeeder | Dec = write holiday cards in French. Projects teach planning, making, and finishing.', tag: '🎨 Project', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '3:00–4:00', name: 'Music or arts', detail: 'Year 1–2: exploration (drum on pots, sing songs, dance freely). Year 3+: instrument practice 20 min + art portfolio work 40 min. Discipline comes later — joy comes first.', tag: '🎵 Music', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '4:00–5:00', name: 'Family learning time', detail: 'Choose a documentary (David Attenborough, National Geographic Kids). Watch together. Pause for questions. Discuss over dinner. Learning is not a solo sport.', tag: '🌍 World', tagcls: 'background:#f0fdfa;color:#0f766e' },
+      ],
+      winter: [
+        { time: '8:30–9:00', name: 'Breakfast + planning', detail: 'Review the day\'s plan together. Child helps choose the order of activities. Agency and planning skills from age 5.' },
+        { time: '9:00–10:00', name: 'Weekend science experiment', detail: 'Winter experiments: make your own snow (borax), ice magnification (water + food colour in ice cube), salt melting ice exploration. Always: hypothesis first, conclusion after.', tag: '🔬 Science', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '10:00–11:00', name: 'Reading + library trip', detail: 'Ottawa Public Library: Gloucester, Carlingwood, or main branch. Let child choose 5 books freely. Encourage: 1 non-fiction, 1 above current level, 3 free choice.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '11:00–12:00', name: 'French + language play', detail: 'Year 2+: French card games (Go Fish en français), French songs on YouTube (Henri Dès, Alain le Lait), Duolingo Kids 20 min. Make it silly and musical.', tag: '🇫🇷 French', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '1:30–2:30', name: 'Outdoor winter play', detail: 'Skating on the Rideau Canal (when open) is world-class. Gatineau Park cross-country skiing. Build a snow fort. Winter in Ottawa is magical — use it.', tag: '⛸️ Outdoor', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '2:30–3:30', name: 'Creative / arts project', detail: 'Winter art: watercolour snowscapes, origami, weaving on a cardboard loom, building a model igloo with sugar cubes. Display finished work on a dedicated wall.', tag: '🎨 Creative', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '3:30–4:30', name: 'Math games + cook together', detail: 'Saturday baking = applied math. Measure flour (fractions), double a recipe (multiplication), set the oven timer (telling time). Best math lesson of the week.', tag: '🔢 Math', tagcls: 'background:#f0fdf4;color:#166534' },
+      ],
+      spring: [
+        { time: '8:30–9:30', name: 'Garden / nature project', detail: 'Spring planting: start seeds indoors, plan a small garden plot. Math: measure spacing. Science: what do plants need? Art: draw your garden plan on paper. All subjects at once.', tag: '🌱 Science', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '9:30–10:30', name: 'Reading + writing project', detail: 'Year 1–2: write and illustrate a spring story (4–6 pages). Year 3+: research report on a spring animal of choice. Present to family at end of month.', tag: '✍️ Writing', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '10:30–12:00', name: 'Bike ride + Ottawa exploration', detail: 'Ottawa\'s NCC pathways are extraordinary. Bike from home to a destination. Map reading (real maps, not GPS). Identify landmarks. Ottawa is your classroom.', tag: '🚴 Outdoor', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '2:00–3:00', name: 'Competition prep (Year 3+)', detail: 'Math Kangaroo practice papers. Spelling test prep. Science fair experiment setup. For Year 1–2: play a strategy board game (Blokus, Qwirkle, Spot It).', tag: '🏆 Prep', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '3:00–5:00', name: 'Free play + social', detail: 'Neighbour friends, playground, backyard. Social development is academic development. Learning to collaborate, negotiate, and lead is built in play.', tag: '👫 Social', tagcls: 'background:#faeeda;color:#92400e' },
+      ],
+      summer: [
+        { time: '9:00–10:00', name: 'Summer project work', detail: 'One big summer project (chosen in June): write a chapter book, build a model of Ottawa, create a nature documentary, design an app in Scratch, start a lemonade stand (entrepreneurship + math).', tag: '🚀 Project', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '10:00–12:00', name: 'Museum / attraction', detail: 'Ottawa has extraordinary free resources: Canada Science & Tech Museum, Museum of Nature, Canadian Museum of History, Canadian War Museum, National Art Gallery. One per Saturday.', tag: '🏛️ Culture', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '2:00–4:00', name: 'Outdoor adventure', detail: 'Gatineau Park swimming, Mooney\'s Bay beach, Petrie Island. Physical health and mental health are prerequisites for academic excellence.', tag: '🏊 Outdoor', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '4:00–5:00', name: 'Reading + library', detail: 'Ottawa Public Library summer reading challenge. Track books read. Aim: 20 books in July and August. Visit the library every Saturday in summer — free, air-conditioned, inspiring.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+      ]
+    },
+    sunday: {
+      fall: [
+        { time: '9:00–9:30', name: 'Discovery journal', detail: 'Draw and write one thing curious about this week. No rules, no corrections. The journal is a safe space for wonder. Parent does one too — model the habit.', tag: '📓 Journal', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '9:30–10:30', name: 'Family reading time', detail: 'Everyone reads their own book for 30 min. Then the child reads a page aloud to the family. Applause always. This normalises reading as a core family value, not an obligation.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '10:30–11:30', name: 'Weekly science experiment', detail: 'Rotating themes: Sep=air, Oct=plants, Nov=animals, Dec=light. Use a kit (Thames & Kosmos Beginner Science Box is excellent for this age) or free YouTube experiments.', tag: '🔬 Science', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '2:00–3:00', name: 'French or language play', detail: 'Year 2+: French board game, sing 2 French songs learned this week, Duolingo 15 min. Year 1: explore a different culture — food, music, dance, clothing from one chosen country.', tag: '🌍 Culture', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '3:00–4:30', name: 'Unstructured creative play', detail: 'No screens, no adults directing. LEGO, drawing, dress-up, fort building. Genius grows in free play — this is not empty time. It is the most important 90 minutes of the week.', tag: '🎮 Free play', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '4:30–5:00', name: 'Week preview + goal', detail: 'Look at the coming week together. "What are you excited about?" Set one learning goal for the week. Pack school bag. Prepare tomorrow\'s breakfast together.', tag: '📅 Planning', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '7:30–7:50', name: 'Gratitude + reflection', detail: '"What was the best thing about this week?" "What is something you want to get better at?" Write or draw it in a weekly feelings jar. 8 PM bedtime — school tomorrow.', tag: '💛 Reflect', tagcls: 'background:#faeeda;color:#92400e' },
+      ],
+      winter: [
+        { time: '9:30–10:30', name: 'Reading + book report', detail: 'Read for 30 min. Write or dictate (Year 1) a mini book report: title, author, favourite part, rating out of 5 stars, one question the book made you wonder about.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '10:30–11:30', name: 'Science experiment', detail: 'Winter science: make a weather station (thermometer outside, wind direction, precipitation log). Track weather all week. Graph results on Sunday. Real data, real science.', tag: '🔬 Science', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '1:00–2:00', name: 'Art / music exploration', detail: 'Listen to a classical music piece (Vivaldi Winter from Four Seasons in December, Prokofiev Peter and the Wolf). Draw what you hear. Discuss: how does music paint pictures?', tag: '🎵 Music', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '2:00–3:30', name: 'Family game + math', detail: 'Strategy board games: Mastermind, Rush Hour, Blokus, Catan Jr. (Year 3+), Ticket to Ride: First Journey. Games build logical reasoning, probability intuition, and resilience.', tag: '🎲 Games', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '4:00–4:30', name: 'Week review + goal setting', detail: 'Review the discovery journal from this week. "What did you learn?" "What do you want to learn next?" Set one specific goal for the coming week. Write it down.', tag: '📅 Planning', tagcls: 'background:#f0fdf4;color:#166534' },
+      ],
+      spring: [
+        { time: '9:00–10:00', name: 'Independent project work', detail: 'Spring passion project: deep dive into whatever they\'re obsessed with right now. Dinosaurs? Make a museum exhibit in your bedroom. Space? Build a solar system model. Own it.', tag: '🚀 Project', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '10:00–11:00', name: 'Writing practice', detail: 'Year 1: 5 sentences about spring. Year 2: paragraph with topic sentence. Year 3: 3-paragraph essay on spring topic of choice. Year 4–5: research essay with source citation.', tag: '✍️ Writing', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '11:00–12:00', name: 'Nature walk + journaling', detail: 'Walk the same local route each Sunday in spring. Document: temperature, birds heard, flowers seen, insects found. Create a spring phenology journal. Real science, real Ottawa.', tag: '🌿 Nature', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '2:00–4:00', name: 'Free play + social', detail: 'Neighbours, park, bikes. Social play. The extroversion and social intelligence Harvard prizes grows here.', tag: '👫 Social', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '4:00–4:30', name: 'Week ahead plan', detail: 'School week preview. Competitions coming up? Projects due? Practice? Plan it. Put it on a shared family calendar. Planning skills = life skills.', tag: '📅 Planning', tagcls: 'background:#f0fdf4;color:#166534' },
+      ],
+      summer: [
+        { time: '9:00–10:30', name: 'Summer project deep work', detail: 'Two uninterrupted hours on the big summer project. No interruptions. This builds the "deep work" capacity that elite university students need. It starts with uninterrupted creative time at age 6.' },
+        { time: '10:30–11:30', name: 'Reading + comprehension', detail: 'Read for 1 hour. Full stop. No phone, no interruption. This is the single highest-ROI activity in this entire plan. Everything downstream depends on reading.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '2:00–4:00', name: 'Family adventure', detail: 'Sunday family activity: Hog\'s Back Falls, Mer Bleue Bog boardwalk, Rideau Hall gardens, Kanata Farmers Market. Ottawa is endlessly explorable. Model curiosity and discovery.' },
+        { time: '4:30–5:00', name: 'Week review', detail: 'What did we learn this week? What was hard? What was wonderful? Log 3 highlights. Set 1 goal for the coming week. Close with something to look forward to.', tag: '📅 Planning', tagcls: 'background:#f0fdf4;color:#166534' },
+      ]
+    }
+  },
+  grade3: {
+    weekday: {
+      fall: [
+        { time: '6:45–7:15', name: 'Morning brain warm-up', detail: 'Over breakfast: math problem of the day (Art of Problem Solving or AMC practice), word of the day with etymology, 1 logic puzzle (printable or app). Activate before school, not after.', tag: '🧠 Brain', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '7:15–7:45', name: 'Independent reading', detail: '30 min silent reading from current chapter book. Keep a reading log: date, pages read, 1-sentence reaction. No phone, no interruption. Non-negotiable.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '8:00 AM', name: 'School — Grade 3', detail: 'Be the most curious student in every room. Ask 1 great question per class. Sit in the front. Introduce yourself to your teacher week 1 and tell them you love learning.', tag: '🏫 School', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '3:30–4:00', name: 'Physical activity', detail: 'Team sport, bike, skateboard, park. Brain reset is not optional — 30 min physical activity after school measurably improves the quality of the subsequent study session.', tag: '🏃 Physical', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '4:00–4:45', name: 'Math enrichment', detail: 'One full year above grade level. Khan Academy (Grade 4–5 track). Art of Problem Solving Beast Academy. 45 min focused, no distractions. This is where the math acceleration happens.', tag: '🔢 Math', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '4:45–5:30', name: 'Writing practice', detail: 'Mon: creative (story start). Tue: paragraph (explain a concept). Wed: research (find 3 facts, write summary). Thu: grammar (Strunk & White exercises). Fri: free writing. 45 min always.', tag: '✍️ Writing', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '5:30–6:00', name: 'Science / social studies', detail: 'Read one chapter from an enrichment book (DK Eyewitness, National Geographic), do one Khan Academy science video + quiz, or continue a science project in progress.', tag: '🔬 Science', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '6:30–7:00', name: 'Dinner discussion', detail: 'Structured debate: parent provides a current event (from CBC Kids News). Child must take a position and defend it with at least 2 reasons. Parent argues the opposite. Switch sides.', tag: '💬 Debate', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '7:00–7:30', name: 'French practice', detail: 'Duolingo French (30 min) + 10 min conversation with parent using only French for household objects and requests. Ottawa\'s bilingual environment is a massive advantage — exploit it fully.', tag: '🇫🇷 French', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '7:30–8:00', name: 'Instrument practice', detail: 'Piano or violin: scales (5 min), current piece (15 min), sight reading (5 min), theory workbook (5 min). 30 min total. Daily practice makes Grade 3 RCM possible by Year 2.', tag: '🎵 Music', tagcls: 'background:#f5e6e9;color:#a51c30' },
+      ],
+      winter: [
+        { time: '6:45–7:15', name: 'Morning problem + reading', detail: 'Competition math problem (AMC 8 past paper, one question). Word of the day. 15 min reading if time permits. Goal: arrive at school with brain already engaged.', tag: '🧠 Brain', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '7:15–7:45', name: 'Independent reading', detail: 'Winter reading: historical fiction set in different eras, science fiction that sparks curiosity. Reading log must include: 1 vocab word learned + 1 question raised.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '3:30–4:00', name: 'Physical — indoor/outdoor', detail: 'Even in Ottawa winter: walk outside 15 min (cold air + movement = best afternoon reset). OR: 30 min indoor yoga, jump rope, or dance routine. Movement is medicine.', tag: '🏃 Physical', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '4:00–4:45', name: 'Math enrichment', detail: 'Winter focus: competition math. AMC 8 past papers (2010–2023 all available free). Work 5 problems per session, show all work, review errors carefully. Error analysis = fastest improvement.', tag: '🔢 Math', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '4:45–5:30', name: 'Writing — research project', detail: 'Winter writing project: 5-page research paper (self-chosen topic). Week 1: choose topic + find 3 sources. Week 2: outline. Weeks 3–5: draft. Week 6: revise + final copy.', tag: '✍️ Writing', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '5:30–6:00', name: 'Science project', detail: 'Science fair prep (entries usually due Feb/Mar). Experiment running: daily observation, data recording, graph building. This is real science — treat it seriously.', tag: '🔬 Science', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '6:30–7:00', name: 'Dinner: book / philosophy', detail: 'Discuss current read at dinner. Parent asks Socratic questions: "Would you have made the same choice as this character?" "Is the villain wrong, or just misunderstood?"', tag: '💬 Discussion', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '7:00–7:30', name: 'French + second language', detail: 'Duolingo 20 min + French TV show (Miraculous Ladybug en français, Zone 3, Ici Radio-Canada Kids content). Ottawa francophone community events when available.', tag: '🇫🇷 French', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '7:30–8:00', name: 'Music practice', detail: 'RCM Grade 2–3 repertoire. Scales + arpeggios (10 min). Two contrasting pieces (15 min). Theory workbook page (5 min). Performance for parent on Sundays.', tag: '🎵 Music', tagcls: 'background:#f5e6e9;color:#a51c30' },
+      ],
+      spring: [
+        { time: '6:45–7:15', name: 'Morning warm-up', detail: 'Spring prep: competition season. AMC 8 is in November — but practice year-round. Math Kangaroo is in March. One problem per morning, every morning, all year.', tag: '🧠 Brain', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '7:15–7:45', name: 'Independent reading', detail: 'Spring reading: non-fiction books about innovators, scientists, leaders. Model: these are real people who worked hard. Their stories are your roadmap.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '4:00–4:45', name: 'Math — acceleration focus', detail: 'Spring: complete the current year\'s math curriculum and begin next year. Use Khan Academy mastery mode. Don\'t move on until 90%+ mastery on every unit. Excellence over speed.', tag: '🔢 Math', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '4:45–5:30', name: 'Writing — publish something', detail: 'Spring goal: publish something real. Submit to school literary magazine, local newspaper kids section, youth writing contest (Young Writers Project, Scholastic Art & Writing Awards Canada).', tag: '✍️ Writing', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '5:30–6:00', name: 'Science fair finish + presentation', detail: 'Science fair presentation prep: poster, oral explanation (3 min), Q&A practice. Parent plays skeptical judge: "How do you know your data is accurate?" Prepare for hard questions.', tag: '🔬 Science', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '7:00–7:30', name: 'French', detail: 'Spring French target: hold a 3-minute conversation on a simple topic (school, hobbies, Ottawa, the weather). Record it. Listen back. Improve. This is what fluency feels like.', tag: '🇫🇷 French', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '7:30–8:00', name: 'Music recital prep', detail: 'Spring recital season. Performance practice: play the full piece without stopping, even with errors. Performance mindset: not perfection, but communication. What feeling are you conveying?', tag: '🎵 Music', tagcls: 'background:#f5e6e9;color:#a51c30' },
+      ],
+      summer: [
+        { time: '8:00–8:30', name: 'Morning reading', detail: 'Summer rule: read before screens. Every day. 30 min. Library summer reading challenge. One book per week minimum. Log everything.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '8:30–9:30', name: 'Math deep work', detail: 'Summer is for acceleration. When school is out, math progress can double. Art of Problem Solving. Khan Academy advanced track. AMC 8 paper a week. Next year\'s curriculum started.', tag: '🔢 Math', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '9:30–11:00', name: 'Big summer project', detail: 'One substantial project for the whole summer: write a novel (NaNoWriMo Young Writers summer edition), design a game, run a real business, conduct a research study, build an app. Something real.', tag: '🚀 Project', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '2:00–4:00', name: 'Summer program / camp', detail: 'Ottawa options: UOttawa summer STEM camps, Carleton engineering camps, Ottawa Drama League summer theatre, Ottawa Senators hockey school, various coding camps. One per week of July.', tag: '🏕️ Camp', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '4:00–5:00', name: 'Outdoor / sport', detail: 'Physical excellence is part of the Harvard package. Find a sport and practice it seriously in summer. Running, swimming, tennis, rowing on the Ottawa River — all excellent options.', tag: '🏃 Physical', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '7:00–7:30', name: 'Music + achievement log', detail: 'Daily music practice never stops, even in summer. Summer: learn one complete new piece. Update achievement log: what have you accomplished this summer? List it.', tag: '🎵 Music', tagcls: 'background:#f5e6e9;color:#a51c30' },
+      ]
+    },
+    saturday: {
+      fall: [
+        { time: '8:00–9:00', name: 'Competition math — deep session', detail: 'The most important academic hour of the week. AMC 8 past papers (2010–present, free at artofproblemsolving.com). 5 problems, timed (8 min each). Show all work. Review every error.', tag: '🏆 Compete', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '9:00–10:00', name: 'Writing workshop', detail: 'Work on current long-form writing project. No starting new things — finish what\'s in progress. Research paper, story, or essay. 60 min uninterrupted. This builds completion muscle.', tag: '✍️ Writing', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '10:00–11:00', name: 'Enrichment class or club', detail: 'Join one ongoing program: Ottawa robotics league, debate team, school chess club, competitive math club, science olympiad team, French drama. This is where the "spike" gets built.', tag: '⭐ Enrichment', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '11:00–12:00', name: 'Reading + annotation', detail: 'Read 2 chapters. Annotate: underline powerful sentences, question marks for confusion, stars for important ideas. Write a 1-paragraph analysis: main idea, author\'s technique, personal reaction.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '1:30–2:30', name: 'STEM long project', detail: 'This is the science fair / robotics / coding project time. 60 min per week on a project that takes months to complete. Real science is slow. Persistence is the skill.', tag: '🔬 STEM', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '2:30–3:30', name: 'Team sport or physical', detail: 'Competitive sport teaches: coachability, teamwork, resilience, goal-setting. All are Harvard-valued traits. Choose a team sport and commit to it seriously.', tag: '⚽ Sport', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '3:30–4:30', name: 'Creative / arts', detail: 'Music recital prep or new piece learning. Visual art portfolio (one new piece per month). Creative writing just for fun. Balance rigour with joy — always.', tag: '🎨 Arts', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '4:30–5:30', name: 'French immersion', detail: 'Watch 1 French film or TV episode (full, no subtitles in Year 3+). Post-watch: describe 3 things that happened in French. Narration in the target language builds deep fluency.', tag: '🇫🇷 French', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '5:30–6:00', name: 'Community service planning', detail: 'Research upcoming volunteer opportunities. Ottawa Food Bank, Shepherds of Good Hope, CHEO volunteer programs (youth), Alexandra Park Food Cupboard. Schedule next session.', tag: '❤️ Service', tagcls: 'background:#f0fdf4;color:#166534' },
+      ],
+      winter: [
+        { time: '8:00–9:00', name: 'AMC / competition math', detail: 'Winter = peak AMC 8 season (November). Full timed mock test monthly. Review session: every wrong answer gets a solution write-up. "What strategy would have worked?"', tag: '🏆 Compete', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '9:00–10:00', name: 'Research paper session', detail: 'Current long writing project. Winter is ideal: focus indoors. Use Ottawa Public Library database access (Encyclopaedia Britannica, Canadian Encyclopedia) for sources.', tag: '✍️ Writing', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '10:00–11:30', name: 'Science fair intensive', detail: 'Winter science fair crunch. Run experiments, collect data, build visual display. Ottawa Regional Science Fair is typically March. Deadline awareness builds time management.', tag: '🔬 Science', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '1:00–2:00', name: 'Indoor enrichment', detail: 'Chess tournament practice, coding project sprint (complete one feature), math olympiad problems. One hour of deep concentration — phone in another room, timer on.', tag: '🧠 Focus', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '2:00–3:00', name: 'Skating or winter sport', detail: 'Ottawa\'s unique advantage: world\'s longest naturally refrigerated skating rink on the Rideau Canal (when conditions allow). Physical excellence and cultural identity in one.', tag: '⛸️ Sport', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '3:00–4:00', name: 'Music + theory', detail: 'Saturday: focus on theory workbook (RCM Theory Grade matching your level) and ear training. Sight reading new pieces. Record a performance on phone — listening back accelerates improvement.', tag: '🎵 Music', tagcls: 'background:#f5e6e9;color:#a51c30' },
+      ],
+      spring: [
+        { time: '8:00–9:00', name: 'Math Kangaroo prep', detail: 'Math Kangaroo is in March — Spring Saturday prep sessions. Kangaroo is about creative problem solving, not just calculation. Practice unusual approaches: draw diagrams, work backwards, guess and check.', tag: '🏆 Compete', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '9:00–10:00', name: 'Writing — final polish', detail: 'Spring: finish the year\'s big writing project. Final edit, proofreading checklist (SPaG, paragraphing, evidence), format for submission. Submit to at least one external competition.', tag: '✍️ Writing', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '10:00–12:00', name: 'Spring outdoor STEM', detail: 'Science in Ottawa\'s spring: water quality testing at the Rideau River (school kits available), air quality tracking, bird migration count, urban heat island experiment. Use the city as your lab.', tag: '🔬 Science', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '1:30–3:00', name: 'Sport + service combo', detail: 'Spring community event participation: CHEO Telethon activities, Ottawa Race Weekend student runs (5K), Earth Day cleanup. Combine physical with service — efficiency builds character.', tag: '❤️ Service', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '3:00–4:00', name: 'Passion project work', detail: 'Saturday afternoon is sacred "spike" development time. Whatever this child\'s deep interest — 60 minutes of serious work on it. No interruptions. This is where extraordinary comes from.', tag: '🚀 Spike', tagcls: 'background:#f5e6e9;color:#a51c30' },
+      ],
+      summer: [
+        { time: '8:00–10:00', name: 'Summer math acceleration', detail: 'Two hours of serious math every Saturday in summer. Move through next year\'s curriculum. Art of Problem Solving books are excellent: Prealgebra → Introduction to Algebra. Work through systematically.', tag: '🔢 Math', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '10:00–12:00', name: 'Writing + coding sprint', detail: 'Alternate weekly: writing sprint (1,000 words on summer project) OR coding sprint (complete one project feature). Both require the same skill: sustained focused creation.', tag: '💻 Create', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '1:00–3:00', name: 'Summer program / camp', detail: 'Targeted summer enrichment: STEM camps, debate institutes, writing workshops, music intensives. Use these weeks to try new areas and deepen existing skills.', tag: '🏕️ Camp', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '3:00–5:00', name: 'Physical + outdoor', detail: 'Summer Ottawa: Gatineau Park trails, Ottawa River swimming, tennis courts, cycling the NCC pathways. Physical health is cognitive health. No exceptions.', tag: '🏃 Physical', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '5:00–6:00', name: 'Achievement log update', detail: 'Weekly: update the brag folder. New accomplishment? Photograph it, log it. Competition result? File it. Essay? Save it. By Grade 8, this portfolio tells a compelling story.', tag: '📋 Portfolio', tagcls: 'background:#f5e6e9;color:#a51c30' },
+      ]
+    },
+    sunday: {
+      fall: [
+        { time: '8:30–9:30', name: 'Research + passion project', detail: '60 min on self-chosen topic. Deep reading, watching expert talks, interviewing a knowledgeable person, building or experimenting. Document everything. This is intellectual vitality in training.', tag: '🚀 Deep work', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '9:30–10:30', name: 'Advanced reading + vocab', detail: '1 grade above level. Annotate with sticky notes: unknown words (look up + write definition), powerful sentences (why effective?), questions raised. Reading journal entry after.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '10:30–11:30', name: 'Essay / paper writing', detail: 'Continue the current long-form writing project. Aim: 200–300 new quality words per session. No starting over. Move forward. Real writers finish things.', tag: '✍️ Writing', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '11:30–12:00', name: 'Current events + opinion', detail: 'Read 2 CBC Kids / TVO Kids news articles. Write: 3-sentence factual summary + 2-sentence opinion (with reasoning). This builds the analytical writing Harvard essays require.', tag: '🌍 News', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '1:00–2:00', name: 'Music + theory mastery', detail: 'Sunday music: full RCM exam preparation routine. All pieces. Scales timed. Theory workbook. Ear training app (Royal Conservatory Ear Training). Mock exam with parent as examiner.', tag: '🎵 Music', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '2:00–3:30', name: 'Competition prep', detail: 'Year 1: Math Kangaroo + Science Olympiad research. Year 2: AMC 8 full mock. Year 3: AMC 8 + debate research. Year 4–5: AMC 10 prep + writing contest submissions.', tag: '🏆 Compete', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '3:30–5:00', name: 'Physical + social', detail: 'Friend time. Outdoor play. Sports with peers. Social development is cognitive development. Learning empathy, leadership, and communication in real social settings is irreplaceable.', tag: '👫 Social', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '7:00–7:30', name: 'Weekly review + goal setting', detail: 'Review everything learned this week. What was accomplished? What was hard? Set 3 specific goals for the coming week. Update the achievement log. Sleep by 8:30 PM.', tag: '📅 Review', tagcls: 'background:#f0fdf4;color:#166534' },
+      ],
+      winter: [
+        { time: '9:00–10:00', name: 'Deep reading session', detail: 'Full 60 min of a challenging book — no stopping. This builds reading stamina, which is essential for the long-form reading Harvard requires. No phones in the room.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '10:00–11:30', name: 'Science project + analysis', detail: 'Sunday = science project analysis day. Review data collected this week. Make graphs. Look for patterns. Write the "what I found" section. Science fair success is built one Sunday at a time.', tag: '🔬 Science', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '1:00–2:00', name: 'Music + performance', detail: 'Sunday performance: play full recital pieces for family without stopping. Parents give one specific piece of feedback. Practice performing, not just playing. These are different skills.', tag: '🎵 Music', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '2:00–3:00', name: 'Math competition practice', detail: 'Winter Sunday: extra AMC/Kangaroo practice. Focus on error categories: which problem types are weakest? Design 30 min specifically targeting those types. Targeted practice beats generic.', tag: '🔢 Math', tagcls: 'background:#f0fdf4;color:#166534' },
+        { time: '3:00–4:30', name: 'Family time + game', detail: 'Strategy games: Settlers of Catan, Pandemic, Ticket to Ride, chess. Games that involve probability, strategy, and long-term planning. These are academic skills in disguise.', tag: '🎲 Family', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '7:00–7:30', name: 'Week plan + achievement log', detail: 'Review what\'s coming: competitions, deadlines, music lessons, school projects. Plan the week with the child — not for them. Agency in planning builds executive function.', tag: '📅 Review', tagcls: 'background:#f0fdf4;color:#166534' },
+      ],
+      spring: [
+        { time: '9:00–10:00', name: 'Reading + literary analysis', detail: 'Sunday deep read: non-fiction biography or memoir. Write: 1 lesson this person\'s life teaches + 1 way it connects to current events + 1 question you\'d ask them. Analysis, not summary.', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '10:00–11:30', name: 'Writing final polish', detail: 'Spring: finalise the year\'s big piece. Read aloud (catches errors ears miss). Check: does every sentence earn its place? Cut anything that doesn\'t serve the argument. Brevity is sophistication.', tag: '✍️ Writing', tagcls: 'background:#f5f3ff;color:#6d28d9' },
+        { time: '11:30–12:00', name: 'Portfolio update', detail: 'Monthly portfolio review: add new pieces, update service hours log, record new competition results. Print the best essay of the month and put it in a physical binder. Tangible progress matters.', tag: '📋 Portfolio', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '1:00–2:00', name: 'Music + theory', detail: 'Spring: RCM exam preparation final push. Theory exam and practical exam. Run mock exams. Treat it like the real thing. Exam experience is itself a skill.', tag: '🎵 Music', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '2:00–4:00', name: 'Outdoor + social', detail: 'Spring Sunday in Ottawa: Arboretum, Rideau River pathways, Hog\'s Back Falls. Time with friends. Let the mind rest after a week of focused effort.', tag: '🌿 Outdoor', tagcls: 'background:#f0fdfa;color:#0f766e' },
+        { time: '4:00–4:30', name: 'Year-end goal review', detail: 'Spring: review the milestones from Year start. What has been achieved? What still needs work? Celebrate growth. Recalibrate goals for the final term. This is a coaching conversation, not an evaluation.', tag: '📅 Review', tagcls: 'background:#f0fdf4;color:#166534' },
+      ],
+      summer: [
+        { time: '9:00–11:00', name: 'Summer big project — deep work', detail: 'Two uninterrupted hours. Phone away, music off. This is the most important cognitive habit this plan builds. The ability to do deep work for sustained periods is the competitive advantage that compounds for life.', tag: '🚀 Deep work', tagcls: 'background:#f5e6e9;color:#a51c30' },
+        { time: '11:00–12:00', name: 'Reading + reflection', detail: 'Summer reading: challenging, above level, slightly uncomfortable. After: 1-paragraph written reflection. No plot summary — what did this book change about how you see the world?', tag: '📖 Reading', tagcls: 'background:#eff6ff;color:#1d4ed8' },
+        { time: '2:00–4:00', name: 'Family exploration', detail: 'Sunday family adventure: new Ottawa neighbourhood, Québec day trip, Rideau Lakes kayaking, cycling the Trans-Canada Trail. Education is not only in books. Experience the world.', tag: '🌍 Explore', tagcls: 'background:#faeeda;color:#92400e' },
+        { time: '4:30–5:00', name: 'Summer portfolio update', detail: 'Weekly summer log: what was created, learned, experienced, accomplished. By Labour Day, this summer should have 10 documented entries in the achievement log.', tag: '📋 Portfolio', tagcls: 'background:#f5e6e9;color:#a51c30' },
+      ]
+    }
+  }
+};
+
+const resourceSets = {
+  kinder_early: {
+    label: 'Kindergartner — Years 1–2 (Ages 5–7)',
+    cards: [
+      { type: 'Reading books', title: 'Early reader library', items: ['Elephant & Piggie series — Willems', 'Fly Guy series — Arnold', 'Pete the Cat series', 'Biscuit series — Capucilli', 'Bob Books Sets 1–4 (phonics)', 'Beginner Books by Dr. Seuss', 'Mercy Watson series — DiCamillo', 'Nate the Great — Sharmat', 'Cam Jansen series — Adler', 'George and Martha — Marshall'] },
+      { type: 'Read-aloud books', title: 'Parent read-aloud picks', items: ['Charlotte\'s Web — E.B. White', 'Stuart Little — E.B. White', 'The BFG — Roald Dahl', 'James and the Giant Peach — Dahl', 'My Father\'s Dragon — Gannett', 'The Boxcar Children — Warner', 'A Cricket in Times Square — Selden', 'The Wind in the Willows — Grahame', 'Little House in the Big Woods — Wilder', 'The Enormous Crocodile — Dahl'] },
+      { type: 'Math tools', title: 'Hands-on math resources', items: ['Sum Swamp board game', 'Zingo Number Bingo', 'Osmo Numbers (iPad app)', 'Khan Academy Kids (free app)', 'Prodigy Math (free, game-based)', 'Base-10 blocks (manipulatives)', 'Mathlink cubes', 'Abacus (classic wooden)', 'Times Tales (multiplication stories)', 'Beast Academy 2A–2D (Grade 2–3)'] },
+      { type: 'Science kits', title: 'Hands-on science', items: ['Thames & Kosmos Kids First Science Lab Kit', 'National Geographic Mega Science Kit', 'Steve Spangler Science Club subscription', 'Grow a Crystal Science Kit', 'Mel Science subscription (intro level)', 'Nature Exploration journal (blank)', 'Magnifying glass + bug catcher kit', 'Mini microscope (Carson MicroBrite)', 'Backyard Birds of Ontario field guide', 'Plants & Seeds Growing Kit'] },
+      { type: 'Apps & digital', title: 'Screen time that counts', items: ['Khan Academy Kids (reading + math)', 'Starfall (phonics — free)', 'Epic! Books (library for kids)', 'Prodigy Math Game', 'Duolingo ABC (literacy)', 'Scratch Jr. (iPad coding)', 'Toca Boca science apps', 'CBC Kids News (Ottawa-friendly)', 'YouTube: Crash Course Kids', 'PBS Kids educational games'] },
+      { type: 'Ottawa resources', title: 'Local enrichment (Ottawa)', items: ['Ottawa Public Library — all branches', 'Canadian Museum of Nature (free Sunday mornings)', 'Canada Science & Technology Museum', 'Gatineau Park (free in winter — cross-country ski)', 'Rideau Canal Skateway (world famous!)', 'Canadian Children\'s Museum — Museum of History', 'Ottawa Family Resource Centres', 'Ottawa Chess Club (junior program)', 'Ottawa Youth Orchestras (early program)', 'Sportball Ottawa (multi-sport, ages 2–8)'] },
+    ]
+  },
+  kinder_mid: {
+    label: 'Kindergartner — Years 3–4 (Ages 7–9)',
+    cards: [
+      { type: 'Chapter books', title: 'Grade 3–5 reading list', items: ['The Lion the Witch & the Wardrobe — Lewis', 'Matilda — Dahl', 'Holes — Sachar', 'The One and Only Ivan — Applegate', 'Because of Winn-Dixie — DiCamillo', 'Hatchet — Paulsen', 'Number the Stars — Lowry', 'The Giver — Lowry', 'Bridge to Terabithia — Paterson', 'A Wrinkle in Time — L\'Engle', 'Island of the Blue Dolphins — O\'Dell', 'Tuck Everlasting — Babbitt', 'Esperanza Rising — Ryan', 'Maniac Magee — Spinelli'] },
+      { type: 'Non-fiction & biography', title: 'Who Was / What Is series', items: ['Who Was Albert Einstein? — Brallier', 'Who Was Marie Curie? — Stine', 'Who Was Amelia Earhart?', 'Who Was Martin Luther King Jr.?', 'Who Was Malala Yousafzai?', 'What Is the Constitution? — Demuth', 'DK Eyewitness Science series', 'National Geographic Kids World Atlas', 'Horrible Histories series', 'Basher Science series (full set)'] },
+      { type: 'Math books', title: 'Math acceleration resources', items: ['Beast Academy 3A–4D (AoPS)', 'Math Kangaroo past papers (free online)', 'Singapore Math Books Grade 3–4', 'Murderous Maths series — Poskitt', 'The Number Devil — Enzensberger', 'How to Bake Pi — Cheng (excerpts)', 'Khan Academy Grade 4–5 (free)', 'Dr. Funster\'s Think-A-Minutes', 'Critical Thinking Co. Math Analogies', 'Zaccaro Challenge Math books'] },
+      { type: 'Coding', title: 'Coding pathway', items: ['Scratch.mit.edu (free, browser-based)', 'Code.org Grade 4–6 courses (free)', 'Tynker (gamified coding curriculum)', 'CS First by Google (free club curriculum)', 'Coding for Kids — DK book', 'Hello Ruby — Liukas', 'Help Your Kids with Computer Coding — DK', 'Python for Kids — Briggs', 'Sphero BOLT robot (code with blocks)', 'Kano Computer Kit (build + code)'] },
+      { type: 'Writing', title: 'Writing development', items: ['Write Source Grade 3–4 (Houghton Mifflin)', 'Jump Into Writing — Scholastic', 'Young Writers Project (youngwritersproject.org)', 'Daily 6-Trait Writing Grade 3–4', 'Rotten School series (fun narrative models)', 'Big Nate (graphic novel narrative)', 'The Writer\'s Notebook — Fletcher', 'Scholastic Art & Writing Awards Canada', 'Norman Bethune Essay Contest', 'Ottawa Citizen Kids in the Know column'] },
+      { type: 'Music', title: 'Music education', items: ['Royal Conservatory of Music — Ottawa teachers', 'RCM Theory workbooks Grade 1–3', 'Piano Adventures Primer-Level 3', 'Essential Elements for Strings (violin)', 'Note reading app: Note Rush (iOS)', 'Ear training: Teoria.com (free)', 'Ottawa Youth Orchestra Junior program', 'RCM Celebrations series (recital pieces)', 'Music Mind Games — Forrest', 'YouTube: TwoSet Violin (inspiring)'] },
+    ]
+  },
+  kinder_late: {
+    label: 'Kindergartner — Year 5 (Age 9–10)',
+    cards: [
+      { type: 'Literature', title: 'Advanced middle-grade reads', items: ['The Phantom Tollbooth — Juster', 'Ender\'s Game — Card (with discussion)', 'Anne of Green Gables — Montgomery (Ottawa region!)', 'The Watsons Go to Birmingham — Curtis', 'Inside Out and Back Again — Lai', 'The Outsiders — Hinton', 'Animal Farm — Orwell (with parent discussion)', 'I Am Malala — Yousafzai (young readers)', 'A Long Walk to Water — Park', 'The Boy in the Striped Pyjamas — Boyne'] },
+      { type: 'Math competitions', title: 'Competition prep', items: ['Art of Problem Solving Intro to Algebra', 'AMC 8 past papers 2010–2023 (free: aops.com)', 'Math Kangaroo past problems (free: mathkangaroo.ca)', 'GAUSS contest prep (University of Waterloo)', 'Brilliant.org (subscription, visual math)', 'CrowdMath (free online competition math)', 'MATHCOUNTS school handbook (US but excellent)', 'Competition Math for Middle School — Batterson', 'Introduction to Counting & Probability — AoPS', 'Ottawa Math Circle (check UOttawa)'] },
+      { type: 'Research & writing', title: 'Academic writing toolkit', items: ['A Writer\'s Reference — Hacker (intro chapters)', 'Research papers with citations: Google Scholar', 'Ottawa Public Library database access (free with card)', 'Purdue OWL (online writing lab, free)', 'Canadian Encyclopedia (thecanadianencyclopedia.ca)', 'Oxford Children\'s Encyclopedia', 'Evernote or Notion (research note-taking)', 'Zotero (free bibliography manager)', 'Scholastic Writing Awards Canada', 'Young Authors Conference Ottawa (annual)'] },
+      { type: 'Leadership & service', title: 'Service opportunities', items: ['Ottawa Food Bank (youth programs)', 'CHEO Foundation events', 'Caring & Sharing Exchange Ottawa', 'Community Harvest Ottawa', 'Ottawa Humane Society (junior volunteer)', 'Ottawa Public Library reading buddy program', 'Frontier College tutoring programs', 'Community Association programs (yours)', 'Scouts Canada Ottawa (leadership built-in)', 'Mayor\'s Youth Advisory Committee (apply)'] },
+      { type: 'Critical thinking', title: 'Philosophy & logic', items: ['Philosophy for Children (P4C) program materials', 'The Philosopher\'s Toolkit for Teens — Cohen', 'Logic Safari Workbooks — Classroom Complete', 'Brain Quest Grade 4–5 (review + challenge)', 'Fallacy Detective — Bluedorn', 'Socratic Circles — Copeland (parent guide)', 'Thinking Through Philosophy — Kaye', 'Mind Benders logic puzzles — Critical Thinking Co.', 'Lateral Thinking Puzzles — Sloane', 'Future Problem Solving Program International'] },
+      { type: 'Science', title: 'Science deepening', items: ['Scientist in the Field series (multiple authors)', 'The Way Things Work — Macaulay', 'Physics Lab for Kids — Heinecke', 'Chemistry Science Kit: Thames & Kosmos C500', 'Canada Science Fair Foundation resources', 'Science Fair Success — Bombaugh', 'Young Naturalist Foundation (Canada)', 'Let\'s Talk Science (Ottawa outreach programs)', 'Ottawa Astronomy Friends (youth welcome)', 'iNaturalist app (citizen science, free)'] },
+    ]
+  },
+  grade3_early: {
+    label: 'Grade 3 Student — Years 1–2 (Ages 8–10)',
+    cards: [
+      { type: 'Literature', title: 'Grade 5–7 reading list', items: ['The Lightning Thief — Riordan', 'Wonder — Palacio', 'The Giver — Lowry', 'Hatchet — Paulsen', 'A Wrinkle in Time — L\'Engle', 'Number the Stars — Lowry', 'Roll of Thunder Hear My Cry — Taylor', 'Tuck Everlasting — Babbitt', 'The Dark is Rising — Cooper', 'From the Mixed-Up Files — Konigsburg', 'Esperanza Rising — Ryan', 'Bud Not Buddy — Curtis', 'Refugee — Gratz', 'His Dark Materials Bk1 — Pullman'] },
+      { type: 'Non-fiction', title: 'Non-fiction must-reads', items: ['Hidden Figures Young Readers — Shetterly', 'I Am Malala — Yousafzai', 'A Short History of Nearly Everything (young readers) — Bryson', 'The Code Book for Young Readers — Singh', 'Malala\'s Magic Pencil — Yousafzai', 'Bomb — Sheinkin (narrative non-fiction)', 'Explosive Eighteen — can't recommend this', 'Lincoln — Sandburg (excerpts)', 'Team Moon — Thimmesh', 'The Boy Who Harnessed the Wind — Kamkwamba'] },
+      { type: 'Math', title: 'Math acceleration books', items: ['Art of Problem Solving Beast Academy 4A–5D', 'Singapore Math Grade 4–6 (Challenging Word Problems)', 'Murderous Maths complete series — Poskitt', 'Competition Math for Middle School — Batterson', 'AMC 8 past papers 2010–2023 (free: aops.com)', 'Math Kangaroo Canada past papers (free)', 'Khan Academy Grade 5–6 full track', 'Brilliant.org — Foundations + Level 1', 'The Art and Craft of Problem Solving — Zeitz', 'GAUSS contest preparation (UWaterloo, free online)'] },
+      { type: 'Writing', title: 'Writing resources', items: ['Write Source Grade 5–6', 'The Elements of Style — Strunk & White (start chapter 1–2)', 'Young Writers Project (youngwritersproject.org)', 'Scholastic Art & Writing Awards Canada', 'Norman Bethune Essay Contest (Ontario)', 'Royal Canadian Geographic Society student writing', 'Daily 6-Trait Writing Grade 5–6', 'The Writing Revolution — Hochman', 'Grammar Girl Quick & Dirty Tips', 'Ottawa Citizen Letters to the Editor (for teens — start submitting Year 3)'] },
+      { type: 'Coding', title: 'Coding curriculum', items: ['Python for Kids — Briggs (complete)', 'Code.org Grade 6–8 track (free)', 'Tynker Advanced Python course', 'CS Unplugged activities (free, csunplugged.org)', 'Scratch 3.0 advanced projects', 'Arduino Starter Kit (official)', 'Raspberry Pi foundation projects (free)', 'Automate the Boring Stuff with Python — Sweigart', 'Hour of Code activities (code.org)', 'MIT App Inventor (build Android apps, free)'] },
+      { type: 'Science', title: 'Science enrichment', items: ['DK Eyewitness Science series (full set)', 'The Way Things Work Now — Macaulay', 'Physics for Future Presidents — Muller', 'The Disappearing Spoon — Kean (young readers)', 'National Geographic Encyclopedia of Science', 'Ottawa Regional Science Fair (ottawascience.ca)', 'Canada Wide Science Fair prep materials', 'Let\'s Talk Science outreach programs', 'Science Olympiad Jr. sample tests (free)', 'Mel Science subscription (chemistry experiments)'] },
+    ]
+  },
+  grade3_mid: {
+    label: 'Grade 3 Student — Years 3–4 (Ages 10–12)',
+    cards: [
+      { type: 'Literature', title: 'Grade 7–9 reading list', items: ['The Outsiders — Hinton', 'Animal Farm — Orwell', 'To Kill a Mockingbird — Lee', '1984 — Orwell (Year 4)', 'Lord of the Flies — Golding', 'Night — Wiesel', 'I Am Malala — Yousafzai (full edition)', 'The Kite Runner — Hosseini (with parent discussion)', 'A Raisin in the Sun — Hansberry', 'Romeo & Juliet — Shakespeare (graphic novel + text)', 'A Midsummer Night\'s Dream — Shakespeare', 'The Great Gatsby — Fitzgerald (intro chapters)', 'Ender\'s Game — Card', 'The Alchemist — Coelho'] },
+      { type: 'Non-fiction & ideas', title: 'Big ideas books', items: ['Sapiens Part 1 — Harari', 'Thinking Fast and Slow intro — Kahneman', 'The Selfish Gene Ch.1–3 — Dawkins', 'A Brief History of Time Ch.1–3 — Hawking', 'The Art of War — Sun Tzu (with analysis)', 'Meditations selected — Marcus Aurelius', 'Long Walk to Freedom young readers — Mandela', 'Hidden Figures complete — Shetterly', 'The Innovators intro — Isaacson', 'Just Mercy young readers — Stevenson'] },
+      { type: 'Advanced math', title: 'Math competition + algebra', items: ['AoPS Introduction to Algebra (complete)', 'AoPS Introduction to Counting & Probability', 'AMC 8 full past paper set (2010–2023, timed practice)', 'MATHCOUNTS handbook (school level)', 'UWaterloo GAUSS + CAYLEY past contests', 'Brilliant.org Level 2–3', 'Alcumus problem set (AoPS, free, adaptive)', 'The Art of Problem Solving Vol 1 — Rusczyk', 'AoPS Introduction to Number Theory', 'Competition Math for Middle School — Batterson'] },
+      { type: 'Advanced writing', title: 'Scholarly writing toolkit', items: ['They Say / I Say — Graff & Birkenstein (intro)', 'The Elements of Style — Strunk & White (complete)', 'Writing Analytically — Rosenwasser', 'Purdue OWL MLA citation guide (free)', 'Ottawa Public Library research databases (free)', 'Canadian Encyclopedia (thecanadianencyclopedia.ca)', 'Scholarly writing: abstract, thesis, evidence, conclusion structure', 'Essay competitions: Norman Bethune, Governor General\'s', 'Young Authors Conference Ottawa', 'Write for a real audience: school paper, blog, local media'] },
+      { type: 'STEM & robotics', title: 'STEM projects & tools', items: ['FIRST LEGO League Canada (firstinspirescanada.ca)', 'Arduino Projects Book (official)', 'Raspberry Pi Beginner\'s Guide (free PDF)', 'Python Crash Course — Matthes', 'Science Olympiad Invitational (find through school)', 'Canada Wide Science Fair (cwsf.ca)', 'IEEE Try Engineering Lab (free experiments)', 'SparkFun Electronics tutorials (free online)', 'Tinkercad 3D design (free, browser-based)', 'Fusion 360 (free for students, Autodesk)'] },
+      { type: 'Competitions', title: 'Competition calendar', items: ['AMC 8 — November (every year)', 'Math Kangaroo Canada — March', 'GAUSS contest — May (Univ. of Waterloo)', 'Ottawa Regional Science Fair — March/April', 'Canada-Wide Science Fair — May', 'Scholastic Writing Awards Canada — January deadline', 'Governor General\'s Essay competition — check annually', 'Debate: UOttawa Junior Debates program', 'Geography Bee (National Geographic Canada)', 'Spelling Bee Canada (spellingbee.ca)'] },
+    ]
+  },
+  grade3_late: {
+    label: 'Grade 3 Student — Year 5 (Age 12–13)',
+    cards: [
+      { type: 'Pre-university literature', title: 'Grade 10+ reading list', items: ['Hamlet — Shakespeare', 'Crime & Punishment Part 1–2 — Dostoevsky', 'The Road — McCarthy (discussion with parent)', 'One Hundred Years of Solitude opening — García Márquez', 'Between the World and Me — Coates', 'Just Mercy — Stevenson', 'Gödel Escher Bach Ch.1–3 — Hofstadter', 'The Code Breaker — Isaacson', 'Range — Epstein', 'Atomic Habits — Clear', 'The Uninhabitable Earth selected — Wallace-Wells', 'King Lear abridged — Shakespeare', 'The Structure of Scientific Revolutions excerpts — Kuhn', 'The Elegant Universe Ch.1–2 — Greene'] },
+      { type: 'Pre-calculus', title: 'Math: pre-calculus track', items: ['AoPS Precalculus — Rusczyk', 'AoPS Introduction to Geometry (complete)', 'AMC 10 past papers (aops.com, start attempting)', 'UWaterloo FERMAT contest (Year 11)', 'Khan Academy Precalculus (free, as supplement)', 'Brilliant.org Level 3–4', 'Statistics: AoPS Introduction to Statistics', 'Paul\'s Math Notes (free, paulsonlinemathclass.com)', '3Blue1Brown YouTube: Essence of Calculus (preview)', 'Mathematical Olympiad Challenges — Andreescu'] },
+      { type: 'Research & publication', title: 'Original research pathway', items: ['Canada-Wide Science Fair — senior division', 'Sanofi BioGENEius Canada competition', 'Regeneron ISEF (for senior year — start building)', 'Scholars Academy research mentorship programs', 'Ottawa University research experience programs (inquiry)', 'Governor General\'s Academic Medal (build toward)', 'Siemens Canada Science & Technology competition', 'Canadian Geographic Society student research grants', 'Young Naturalist Foundation grants', 'Ontario Science & Engineering Fair (OSEF)'] },
+      { type: 'High school planning', title: 'Ottawa IB & advanced programs', items: ['Colonel By Secondary School — IB program', 'Nepean High School — AP program', 'Sir Robert Borden — Ottawa Carleton District', 'École secondaire publique De La Salle — French IB', 'Bell High School — advanced science', 'Johns Hopkins CTY summer programs (apply Grade 7)', 'Stanford Online High School summer', 'UWaterloo Enrichment Centre programs', 'Harvard Pre-College summer (apply Grade 9+)', 'Duke TIP (Talent Identification Program)'] },
+      { type: 'Portfolio & applications', title: 'Building the Harvard file', items: ['Achievement brag folder: digital + physical', 'Top 5 essays (edited to perfection)', 'Competition results file (scan certificates)', 'Community service log (200+ hours documented)', 'Letters of recommendation (cultivate 3 teachers now)', 'Music recital recording (video)', 'Research project summary (1 page)', 'Extracurricular spike evidence (work samples)', 'Reading list documentation (400+ books over 5 yrs)', 'Awards, publications, presentations logged'] },
+      { type: 'Character & leadership', title: 'Leadership development', items: ['Mayor\'s Youth Advisory Committee Ottawa (apply)', 'Ottawa Youth Council', 'Student council executive leadership', 'Model UN: UOttawa or Carleton conferences', 'Scouts Canada — senior leadership', 'Youth Fusion Canada (community innovation)', 'Ottawa Community Foundation youth grants', 'Jack.org mental health youth leadership', 'Students on Ice (polar expedition scholarship)', 'Canada World Youth exchange programs'] },
+    ]
+  }
+};
+
+// ─── RENDER LOGIC ────────────────────────────────────────────────────────────
+
+function switchKid(kid) {
+  document.querySelectorAll('.kid-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.kid-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('kid-' + kid).classList.add('active');
+  document.getElementById('tab-' + kid).classList.add('active');
+  document.getElementById('plan-kid').value = kid;
+  renderSchedule();
+}
+
+function showYear(kid, y, btn) {
+  const parent = btn.closest('.kid-section');
+  parent.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderYearCard(kid, y);
+}
+
+function renderYearCard(kid, y) {
+  const data = years[kid][y - 1];
+  const ages = kid === 'kinder'
+    ? `Age ${4 + y}–${5 + y}`
+    : `Age ${7 + y}–${8 + y}`;
+  const containerId = kid + '-year-content';
+
+  const focusHtml = data.focuses.map(f => `
+    <div class="focus-item">
+      <div class="focus-icon ${f.cls}">${f.icon}</div>
+      <div>
+        <div class="focus-title">${f.title}</div>
+        <div class="focus-detail">${f.detail}</div>
+      </div>
+    </div>
+  `).join('');
+
+  const booksHtml = data.books.map(b => `<span class="book-chip">${b}</span>`).join('');
+  const milestones = data.milestones.map(m => `
+    <div class="milestone-item">
+      <div class="milestone-check"></div>
+      <span>${m}</span>
+    </div>
+  `).join('');
+
+  document.getElementById(containerId).innerHTML = `
+    <div class="year-card">
+      <div class="year-card-header">
+        <div>
+          <div style="margin-bottom:6px"><span class="year-tag">Year ${y} · ${ages}</span></div>
+          <div class="year-card-title">${data.label}</div>
+          <div class="year-card-theme">${data.theme}</div>
+        </div>
+      </div>
+      <div class="coach-tip">💡 <strong>Coach's insight:</strong> ${data.tip}</div>
+      <div class="focus-grid">${focusHtml}</div>
+      <div class="books-section">
+        <div class="books-label">📚 Essential reading this year</div>
+        <div class="books-grid">${booksHtml}</div>
+      </div>
+      <div class="milestones-section">
+        <div class="books-label" style="margin-bottom:12px">🏁 Year ${y} milestones — check these off by June</div>
+        <div class="milestone-grid">${milestones}</div>
+      </div>
+    </div>
+  `;
+}
+
+function renderSchedule() {
+  const kid = document.getElementById('plan-kid').value;
+  const year = document.getElementById('plan-year').value;
+  const dayType = document.getElementById('plan-day').value;
+  const season = document.getElementById('plan-season').value;
+
+  const sched = scheduleData[kid]?.[dayType]?.[season];
+  if (!sched) { document.getElementById('schedule-output').innerHTML = '<p style="color:var(--ink-muted);padding:1rem 0;">Schedule coming soon for this combination.</p>'; return; }
+
+  const dayNames = { weekday: 'Weekday', saturday: 'Saturday', sunday: 'Sunday' };
+  const seasonNames = { fall: 'Fall (Sep–Dec)', winter: 'Winter (Jan–Mar)', spring: 'Spring (Apr–Jun)', summer: 'Summer (Jul–Aug)' };
+  const kidLabels = { kinder: 'Kindergartner', grade3: 'Grade 3 Student' };
+  const isWeekend = dayType !== 'weekday';
+
+  const rows = sched.map(s => `
+    <div class="schedule-row">
+      <div class="schedule-time">${s.time}</div>
+      <div class="schedule-act">
+        <div class="schedule-act-name">${s.name}</div>
+        <div class="schedule-act-detail">${s.detail}</div>
+        ${s.tag ? `<span class="schedule-act-tag" style="${s.tagcls}">${s.tag}</span>` : ''}
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('schedule-output').innerHTML = `
+    <div class="schedule-card">
+      <div class="schedule-header">
+        <div>
+          <div class="schedule-day-name">${dayNames[dayType]} — ${seasonNames[season]}</div>
+          <div class="schedule-meta">${kidLabels[kid]} · Year ${year} · Ottawa, Canada</div>
+        </div>
+        <span class="schedule-type-badge ${isWeekend ? 'badge-weekend' : 'badge-school'}">${isWeekend ? 'Enrichment day' : 'School day'}</span>
+      </div>
+      <div class="schedule-body">${rows}</div>
+    </div>
+  `;
+}
+
+function showResources(key, btn) {
+  document.querySelectorAll('.year-track .year-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const data = resourceSets[key];
+  if (!data) return;
+  const cards = data.cards.map(c => `
+    <div class="resource-card">
+      <div class="resource-type">${c.type}</div>
+      <div class="resource-title">${c.title}</div>
+      <ul class="resource-list">
+        ${c.items.map(i => `<li>${i}</li>`).join('')}
+      </ul>
+    </div>
+  `).join('');
+  document.getElementById('resources-output').innerHTML = `
+    <div style="margin-bottom:1rem;font-size:14px;font-weight:600;color:var(--ink-muted);">${data.label}</div>
+    <div class="resource-grid">${cards}</div>
+  `;
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+renderYearCard('kinder', 1);
+renderYearCard('grade3', 1);
+renderSchedule();
+showResources('kinder_early', document.querySelector('#resources .year-track .year-btn'));
+</script>
+</body>
+</html>
