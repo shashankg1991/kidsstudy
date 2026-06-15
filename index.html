@@ -1206,7 +1206,7 @@ const resourceSets = {
     label: 'Grade 3 Student — Years 1–2 (Ages 8–10)',
     cards: [
       { type: 'Literature', title: 'Grade 5–7 reading list', items: ['The Lightning Thief — Riordan', 'Wonder — Palacio', 'The Giver — Lowry', 'Hatchet — Paulsen', 'A Wrinkle in Time — L\'Engle', 'Number the Stars — Lowry', 'Roll of Thunder Hear My Cry — Taylor', 'Tuck Everlasting — Babbitt', 'The Dark is Rising — Cooper', 'From the Mixed-Up Files — Konigsburg', 'Esperanza Rising — Ryan', 'Bud Not Buddy — Curtis', 'Refugee — Gratz', 'His Dark Materials Bk1 — Pullman'] },
-      { type: 'Non-fiction', title: 'Non-fiction must-reads', items: ['Hidden Figures Young Readers — Shetterly', 'I Am Malala — Yousafzai', 'A Short History of Nearly Everything (young readers) — Bryson', 'The Code Book for Young Readers — Singh', 'Malala\'s Magic Pencil — Yousafzai', 'Bomb — Sheinkin (narrative non-fiction)', 'Explosive Eighteen — can't recommend this', 'Lincoln — Sandburg (excerpts)', 'Team Moon — Thimmesh', 'The Boy Who Harnessed the Wind — Kamkwamba'] },
+      { type: 'Non-fiction', title: 'Non-fiction must-reads', items: ['Hidden Figures Young Readers — Shetterly', 'I Am Malala — Yousafzai', 'A Short History of Nearly Everything (young readers) — Bryson', 'The Code Book for Young Readers — Singh', 'Malala\'s Magic Pencil — Yousafzai', 'Bomb — Sheinkin (narrative non-fiction)', 'Explosive Eighteen — removed from list', 'Lincoln — Sandburg (excerpts)', 'Team Moon — Thimmesh', 'The Boy Who Harnessed the Wind — Kamkwamba'] },
       { type: 'Math', title: 'Math acceleration books', items: ['Art of Problem Solving Beast Academy 4A–5D', 'Singapore Math Grade 4–6 (Challenging Word Problems)', 'Murderous Maths complete series — Poskitt', 'Competition Math for Middle School — Batterson', 'AMC 8 past papers 2010–2023 (free: aops.com)', 'Math Kangaroo Canada past papers (free)', 'Khan Academy Grade 5–6 full track', 'Brilliant.org — Foundations + Level 1', 'The Art and Craft of Problem Solving — Zeitz', 'GAUSS contest preparation (UWaterloo, free online)'] },
       { type: 'Writing', title: 'Writing resources', items: ['Write Source Grade 5–6', 'The Elements of Style — Strunk & White (start chapter 1–2)', 'Young Writers Project (youngwritersproject.org)', 'Scholastic Art & Writing Awards Canada', 'Norman Bethune Essay Contest (Ontario)', 'Royal Canadian Geographic Society student writing', 'Daily 6-Trait Writing Grade 5–6', 'The Writing Revolution — Hochman', 'Grammar Girl Quick & Dirty Tips', 'Ottawa Citizen Letters to the Editor (for teens — start submitting Year 3)'] },
       { type: 'Coding', title: 'Coding curriculum', items: ['Python for Kids — Briggs (complete)', 'Code.org Grade 6–8 track (free)', 'Tynker Advanced Python course', 'CS Unplugged activities (free, csunplugged.org)', 'Scratch 3.0 advanced projects', 'Arduino Starter Kit (official)', 'Raspberry Pi foundation projects (free)', 'Automate the Boring Stuff with Python — Sweigart', 'Hour of Code activities (code.org)', 'MIT App Inventor (build Android apps, free)'] },
@@ -1309,15 +1309,18 @@ function renderSchedule() {
   const dayType = document.getElementById('plan-day').value;
   const season = document.getElementById('plan-season').value;
 
-  const sched = scheduleData[kid]?.[dayType]?.[season];
-  if (!sched) { document.getElementById('schedule-output').innerHTML = '<p style="color:var(--ink-muted);padding:1rem 0;">Schedule coming soon for this combination.</p>'; return; }
+  const sched = scheduleData[kid] && scheduleData[kid][dayType] && scheduleData[kid][dayType][season];
+  if (!sched || sched.length === 0) {
+    document.getElementById('schedule-output').innerHTML = '<p style="color:var(--ink-muted);padding:1rem 0;">No schedule found for this combination. Try a different selection.</p>';
+    return;
+  }
 
   const dayNames = { weekday: 'Weekday', saturday: 'Saturday', sunday: 'Sunday' };
   const seasonNames = { fall: 'Fall (Sep–Dec)', winter: 'Winter (Jan–Mar)', spring: 'Spring (Apr–Jun)', summer: 'Summer (Jul–Aug)' };
   const kidLabels = { kinder: 'Kindergartner', grade3: 'Grade 3 Student' };
   const isWeekend = dayType !== 'weekday';
 
-  const rows = sched.map(s => `
+  const rows = sched.map(function(s) { return `
     <div class="schedule-row">
       <div class="schedule-time">${s.time}</div>
       <div class="schedule-act">
@@ -1326,7 +1329,7 @@ function renderSchedule() {
         ${s.tag ? `<span class="schedule-act-tag" style="${s.tagcls}">${s.tag}</span>` : ''}
       </div>
     </div>
-  `).join('');
+  `; }).join('');
 
   document.getElementById('schedule-output').innerHTML = `
     <div class="schedule-card">
@@ -1363,10 +1366,13 @@ function showResources(key, btn) {
 }
 
 // ─── INIT ────────────────────────────────────────────────────────────────────
-renderYearCard('kinder', 1);
-renderYearCard('grade3', 1);
-renderSchedule();
-showResources('kinder_early', document.querySelector('#resources .year-track .year-btn'));
+document.addEventListener('DOMContentLoaded', function() {
+  renderYearCard('kinder', 1);
+  renderYearCard('grade3', 1);
+  renderSchedule();
+  const firstResourceBtn = document.querySelector('#resources .year-btn');
+  if (firstResourceBtn) showResources('kinder_early', firstResourceBtn);
+});
 </script>
 </body>
 </html>
