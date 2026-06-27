@@ -59,6 +59,14 @@ section{padding:4rem 2rem;}
 .coach-tip{background:var(--gold-light);border-left:3px solid var(--gold);padding:.85rem 1.25rem;margin:1.25rem 2rem;border-radius:0 var(--radius) var(--radius) 0;font-size:13px;color:#5a4a1a;line-height:1.65;}
 .curriculum-note{background:#eef4fb;border-left:3px solid #1565a0;padding:.85rem 1.25rem;margin:1.25rem 2rem 0;border-radius:0 var(--radius) var(--radius) 0;font-size:12.5px;color:#0d3a5c;line-height:1.65;}
 .sched-section{padding:1.5rem 2rem;border-top:1px solid var(--border);}
+.rhythm-table{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.rhythm-row{display:grid;grid-template-columns:110px 1fr 1fr;gap:0;border-bottom:1px solid var(--border);background:var(--white);}
+.rhythm-row:last-child{border-bottom:none;}
+.rhythm-day{padding:10px 14px;font-weight:600;font-size:13px;background:var(--paper-warm);color:var(--crimson);border-right:1px solid var(--border);display:flex;align-items:center;}
+.rhythm-focus{padding:10px 14px;font-size:13px;color:var(--ink);border-right:1px solid var(--border);display:flex;align-items:center;}
+.rhythm-secondary{padding:10px 14px;font-size:12.5px;color:var(--ink-muted);display:flex;align-items:center;}
+.rhythm-note{font-size:12px;color:var(--ink-faint);margin-top:.75rem;line-height:1.6;}
+@media(max-width:640px){.rhythm-row{grid-template-columns:90px 1fr;}.rhythm-secondary{grid-column:1 / -1;border-top:1px dashed var(--border);border-right:none;}}
 .sched-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:1rem;}
 .sched-block{margin-bottom:1.25rem;}
 .sched-block-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem;flex-wrap:wrap;}
@@ -245,7 +253,7 @@ footer{background:var(--paper-warm);border-top:1px solid var(--border);padding:2
   <div class="controls">
     <div class="ctrl"><label>Child</label><select id="sel-kid" onchange="renderDay()"><option value="kinder">Kindergartner</option><option value="grade3">Grade 3</option></select></div>
     <div class="ctrl"><label>Plan Year</label><select id="sel-year" onchange="renderDay()"><option value="1">Year 1</option><option value="2">Year 2</option><option value="3">Year 3</option><option value="4">Year 4</option><option value="5">Year 5</option></select></div>
-    <div class="ctrl"><label>Day</label><select id="sel-day" onchange="renderDay()"><option value="weekday">Weekday (School)</option><option value="saturday">Saturday</option><option value="sunday">Sunday</option></select></div>
+    <div class="ctrl"><label>Day</label><select id="sel-day" onchange="renderDay()"><option value="monday">Monday</option><option value="tuesday">Tuesday</option><option value="wednesday">Wednesday</option><option value="thursday">Thursday</option><option value="friday">Friday</option><option value="saturday">Saturday</option><option value="sunday">Sunday</option></select></div>
     <div class="ctrl"><label>Season</label><select id="sel-season" onchange="renderDay()"><option value="fall">Fall (Sep–Dec)</option><option value="winter">Winter (Jan–Mar)</option><option value="spring">Spring (Apr–Jun)</option><option value="summer">Summer (Jul–Aug)</option></select></div>
   </div>
   <div id="day-output"></div>
@@ -312,12 +320,17 @@ footer{background:var(--paper-warm);border-top:1px solid var(--border);padding:2
   <p class="footer-note">Built for an Ottawa family. Tutor + 1 parent hour + self-directed kids = extraordinary outcomes. Adjust the plan as your children grow — this is a living document, not a fixed script.</p>
 </footer>
 
-<script src="data1.js"></script>
-<script src="data2.js"></script>
-<script src="data3.js"></script>
-<script src="data4.js"></script>
-<script src="data5.js"></script>
-<script src="data6.js"></script>
+<script src="yr-k1.js"></script>
+<script src="yr-k2.js"></script>
+<script src="yr-k3.js"></script>
+<script src="yr-k4.js"></script>
+<script src="yr-k5.js"></script>
+<script src="yr-g3.js"></script>
+<script src="yr-g4.js"></script>
+<script src="yr-g5.js"></script>
+<script src="yr-g6.js"></script>
+<script src="yr-g7.js"></script>
+<script src="weekend.js"></script>
 <script src="data7.js"></script>
 <script src="app.js"></script>
 </body>

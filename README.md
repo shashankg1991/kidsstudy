@@ -1,6 +1,6 @@
 # Academic Excellence Plan — 5-Year Prep Plan
 
-A complete day-by-day academic preparation website for two children (Kindergartner and Grade 3) in Ottawa, Canada — built around exactly **1 hour of parent time, 1 hour of tutor time, and self-directed kid time** every day, with concrete step-by-step instructions for every single session.
+A complete day-by-day academic preparation website for two children (Kindergartner and Grade 3) in Ottawa, Canada — built around exactly **1 hour of tutor time, ~50 minutes of parent time, and self-directed kid time** every day, with concrete step-by-step instructions and named resources for every single session.
 
 ## Deploy to Vercel (3 steps, 2 minutes)
 
@@ -29,37 +29,43 @@ Follow the prompts. Site deploys in ~20 seconds.
 ## What's inside
 
 - `index.html` — HTML structure and all CSS (no inline JS — loads the files below)
-- `data1.js`–`data2.js` — Kindergartner year plans (Years 1–5), each with a full weekday schedule, book list, and milestones
-- `data3.js`–`data5.js` — Grade 3 year plans (Years 1–5), same structure
-- `data6.js` — Saturday and Sunday schedule builder (`buildDayPlan`), varies by child, year, and season
+- `yr-k1.js`–`yr-k5.js` — Kindergartner-track year plans (actual Grade 1–5), each with **5 genuinely distinct weekday schedules** (Monday–Friday), a weekly rhythm overview, book list, and milestones
+- `yr-g3.js`–`yr-g7.js` — Grade 3 student-track year plans (actual Grade 3–7), same structure
+- `weekend.js` — Saturday and Sunday schedule builder, plus the `buildDayPlan` dispatcher that routes any of the 7 days to the right content
 - `data7.js` — Resource library (books, tools, programs, competitions, Ottawa-specific links)
-- `app.js` — All rendering logic (year cards, the Daily Explorer, resource tabs, kid switching)
+- `app.js` — All rendering logic (year overview cards, the 7-day Daily Explorer, resource tabs, kid switching)
 - `vercel.json` — Vercel routing configuration
 
-**Load order matters.** `index.html` loads `data1.js` through `data7.js` first, then `app.js` last, since `app.js` reads the `yearPlans`, `resources`, and `buildDayPlan` that the data files define.
+**Load order matters.** `index.html` loads `yr-k1.js` through `yr-g7.js`, then `weekend.js`, then `data7.js`, then `app.js` last, since `app.js` reads the `yearPlans`, `resources`, and `buildDayPlan` that the data files define.
 
-## How the day is structured
+## How each day is structured
+
+Every grade-year now has **7 genuinely different days**, not one repeated "weekday" template:
+- **Monday–Friday** each have a different primary academic focus (e.g. Monday = Number Sense + reading fluency, Tuesday = Writing, Wednesday = a second math strand + coding, Thursday = Reading Comprehension + Science, Friday = weekly review and consolidation) — this spreads subjects across the week the way real instructional time actually works, rather than cramming everything into every single day.
+- **Saturday** is the enrichment/outing day — competitions, museums, clubs, long-form projects.
+- **Sunday** is the deep-work and weekly-review day — passion projects, competition prep, and the parent's weekly check-in with the tutor.
 
 Every session in every schedule is tagged with **who** is responsible:
-- Parent (red) — exactly 1 hour/day: a 15-min morning spark, a 20-min dinner discussion, and a 15-min bedtime read-aloud, plus a slightly longer Sunday review
-- Tutor (blue) — exactly 1 hour/day, after school: explicit math teaching, a writing technique, and science/enrichment setup
-- Self-directed (green) — everything else: school day, reading, coding, instrument practice, French app, science observation — each with exact steps a child can follow without an adult explaining it
+- Parent (red) — a 15-min morning spark, a 20-min dinner discussion, and a 15-min bedtime read-aloud on weekdays, plus a longer Sunday review (~50 min/day total)
+- Tutor (blue) — exactly 1 hour/day, after school, with specific named resources for every activity (exact websites, exact book titles, exact problem counts)
+- Self-directed (green) — school day, reading, coding, instrument practice, French support, science observation — each with exact steps a child can follow without an adult explaining it
 
-Every session includes: a time block, the exact activity, a step-by-step instruction list, the materials needed, the expected outcome, and (for parent/tutor sessions) a coaching cue.
+Every session includes: a time block, the exact activity, a step-by-step instruction list with specific named resources (websites, books, problem counts), the materials needed, the expected outcome, and (for parent/tutor sessions) a coaching cue.
 
 ## Features
 
-- 5-year year-by-year plans for both children, each year with a full sample weekday schedule
-- Daily Explorer — pick child / year / day type (weekday, Saturday, Sunday) / season to see that exact day in full detail
+- 5-year plans for both children, now broken into **70 distinct day-by-day schedules** (7 days × 5 years × 2 children)
+- A weekly rhythm overview on every year card showing the focus of each weekday at a glance
+- Daily Explorer — pick child / year / **specific day of the week** / season to see that exact day in full detail
 - Book lists curated by year and child (150+ titles)
 - Ottawa-specific resources — local programs, museums, competitions, RCM music pathway, IB/AP high schools
-- Competition calendar (AMC 8, Math Kangaroo, GAUSS, Science Fair, etc.)
-- Parent 1-hour daily script — exactly what to say and do, with a "what not to do" card
+- Competition calendar (AMC 8, Math Kangaroo, GAUSS, Science Fair, etc.) woven into specific weekdays and weekends
+- Parent's ~50-minute daily script — exactly what to say and do, with a "what not to do" card
 
 ## Customization
 
-- To edit a specific year's weekday schedule, books, or milestones: open the matching `dataN.js` file and find the `yearPlans.kinder[...]` or `yearPlans.grade3[...]` block.
-- To edit Saturday/Sunday plans: edit `data6.js` (`buildDayPlan` function).
+- To edit a specific grade's weekday schedules, books, or milestones: open the matching `yr-*.js` file and find the `weekdaySchedules.monday` (or tuesday/wednesday/etc.) block.
+- To edit Saturday/Sunday plans: edit `weekend.js` (`buildDayPlan` function).
 - To edit the resource library: edit `data7.js`.
 - To change how anything is displayed (HTML structure, styling hooks): edit `app.js` and the `<style>` block in `index.html`.
 

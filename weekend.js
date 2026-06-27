@@ -1,17 +1,18 @@
 "use strict";
 
-function buildDayPlan(kid, year, dayType, season) {
+function buildDayPlan(kid, year, dayName, season) {
   var yIdx = parseInt(year) - 1;
   var plan = yearPlans[kid][yIdx];
   var label = kid === "kinder" ? "Kindergartner track" : "Grade 3 track";
   var ageBase = kid === "kinder" ? 5 : 8;
   var age = ageBase + yIdx;
 
-  if (dayType === "weekday") {
-    return { type: "weekday", label: label, year: year, age: age, season: season, sessions: plan.schedule };
+  var weekdayNames = ["monday", "tuesday", "wednesday", "thursday", "friday"];
+  if (weekdayNames.indexOf(dayName) !== -1) {
+    return { type: dayName, label: label, year: year, age: age, season: season, sessions: plan.weekdaySchedules[dayName] };
   }
 
-  if (dayType === "saturday") {
+  if (dayName === "saturday") {
     if (kid === "kinder") {
       return { type: "saturday", label: label, year: year, age: age, season: season, sessions: [
         {
@@ -26,12 +27,12 @@ function buildDayPlan(kid, year, dayType, season) {
           who: "parent", label: "Parent", time: "9:00–10:30 AM",
           title: "Enrichment Outing or Activity",
           subject: "⭐ Enrichment", subjectStyle: "background:#f5e6e9;color:#a51c30",
-          activity: season === "winter" ? "Canadian Museum of Nature or Science and Tech Museum" : "Ottawa Public Library — borrow 5 books, attend storytime if available",
+          activity: season === "winter" ? "Canadian Museum of Nature or Canada Science and Technology Museum" : "Ottawa Public Library — borrow 5 books, attend storytime if available",
           steps: [
-            "Year 1–2: Ottawa Public Library. Child picks 5 books — 1 non-fiction, 4 any choice.",
-            "Year 3: Canada Science and Technology Museum — pick one exhibit to study in depth.",
-            "Year 4–5: Enrichment class (coding club, math circle, robotics, debate) or museum visit with written reflection.",
-            "Always ask: 'What is the most interesting thing you learned here?'"
+            "Grade 1–2: Ottawa Public Library (any branch — find the nearest at biblioottawa.ca). Child picks 5 books — 1 non-fiction, 4 any choice. Sign up for a free library card if not already done; this unlocks the Epic! Books for Kids digital app at no cost.",
+            "Grade 3: Canada Science and Technology Museum (free for Ottawa Public Library cardholders via the museum pass program — check biblioottawa.ca) — pick one exhibit to study in depth, write 2 facts about it.",
+            "Grade 4–5: An enrichment class (check Ottawa Recreation's seasonal guide at ottawa.ca/recreation for coding club, chess, or art classes near you) or a museum visit with a written 3-sentence reflection.",
+            "Always ask afterward: 'What is the most interesting thing you learned here?'"
           ],
           materials: ["Library card", "Small notebook for observations", "Bus or car"], outcome: "Weekly cultural and intellectual enrichment outside the home", parentCue: "Your 15 minutes here is the walk in and the walk out conversation. Ask great questions."
         },
@@ -42,7 +43,7 @@ function buildDayPlan(kid, year, dayType, season) {
           activity: "30 min reading then 30 min math game",
           steps: [
             "READING (30 min): Read silently from a library book. If you finish a book, write the title on your reading chart and pick the next one.",
-            "MATH GAME (30 min): Choose one: Prodigy Math, Zingo Number Bingo, Monopoly Jr with a sibling, or Khan Academy Kids math activities. Set a 30-minute timer if using a screen."
+            "MATH GAME (30 min): Choose one: Prodigy Math (prodigygame.com, free, curriculum-aligned) on tablet, Zingo Number Bingo, Monopoly Jr with a sibling, or Khan Academy Kids math activities. Set a 30-minute timer if using a screen."
           ],
           materials: ["Library books", "Tablet or board game"], outcome: "Reading habit reinforced on non-school day, math in play format", parentCue: null
         },
@@ -50,7 +51,7 @@ function buildDayPlan(kid, year, dayType, season) {
           who: "parent", label: "Parent", time: "11:30 AM–1:00 PM",
           title: "Outdoor Ottawa Adventure",
           subject: "🌿 Outdoor", subjectStyle: "background:#e8f7ee;color:#1b5e38",
-          activity: season === "winter" ? "Rideau Canal skating (when open) or Gatineau Park snowshoeing" : season === "summer" ? "Gatineau Park trails or Petrie Island beach" : "NCC pathway bike ride or Hog's Back Falls walk",
+          activity: season === "winter" ? "Rideau Canal Skateway (when open, check ottawa.ca/skateway for conditions) or Gatineau Park snowshoeing" : season === "summer" ? "Gatineau Park trails or Petrie Island beach" : "NCC pathway bike ride or Hog's Back Falls walk",
           steps: [
             "Bring a nature notebook.", "Set a mission: find and draw 3 things you have never noticed before.", "Ask one science question on the way and let them wonder rather than answering it.",
             "Physical activity for 60–90 minutes."
@@ -71,12 +72,12 @@ function buildDayPlan(kid, year, dayType, season) {
           who: "self", label: "Self-directed", time: "3:00–4:00 PM",
           title: "Music and Arts",
           subject: "🎵 Music", subjectStyle: "background:#f5e6e9;color:#a51c30",
-          activity: "Year 1–2: music exploration. Year 3+: formal practice and art portfolio",
+          activity: "Grade 1–2: music exploration. Grade 3+: formal practice and art portfolio",
           steps: [
-            "Year 1–2: Put on a children's classical music playlist. Dance, draw to the music, bang on pots. 30 min of joyful noise.",
-            "Year 3+: Full instrument practice session (as per weekday). Then 20 minutes of visual art — add one piece to your portfolio this month."
+            "Grade 1–2: Put on a children's classical music playlist (search 'Classical Music for Kids' on Spotify or YouTube). Dance, draw to the music, bang on pots. 30 min of joyful noise.",
+            "Grade 3+: Full instrument practice session (as per weekday). Then: 20 minutes of visual art — add one piece to your portfolio this month."
           ],
-          materials: ["Speaker for music", "Year 3+: instrument + art supplies"], outcome: "Music and art habits maintained on weekends", parentCue: null
+          materials: ["Speaker for music", "Grade 3+: instrument + art supplies"], outcome: "Music and art habits maintained on weekends", parentCue: null
         },
         {
           who: "parent", label: "Parent", time: "4:00–5:00 PM",
@@ -84,12 +85,12 @@ function buildDayPlan(kid, year, dayType, season) {
           subject: "🌍 Discovery", subjectStyle: "background:#faeeda;color:#92400e",
           activity: "Documentary + discussion",
           steps: [
-            "Choose a documentary: David Attenborough (any), National Geographic Kids, How It's Made, Cosmos.",
+            "Choose a documentary: a David Attenborough nature series, National Geographic Kids on YouTube, How It's Made, or Cosmos: A Spacetime Odyssey.",
             "Watch together — everyone. No separate screens.",
             "Pause twice for questions: 'What surprised you? Why does that happen?'",
             "Discuss over dinner what you watched."
           ],
-          materials: ["TV", "Netflix or YouTube"], outcome: "Family curiosity modelled, documentary as learning vehicle", parentCue: "Watch with genuine interest yourself. Children mirror their parents' intellectual engagement."
+          materials: ["TV", "Streaming service or YouTube"], outcome: "Family curiosity modelled, documentary as learning vehicle", parentCue: "Watch with genuine interest yourself. Children mirror their parents' intellectual engagement."
         }
       ]};
     } else {
@@ -100,12 +101,12 @@ function buildDayPlan(kid, year, dayType, season) {
           subject: "🏆 Math", subjectStyle: "background:#f5e6e9;color:#a51c30",
           activity: "60 minutes of serious competition math — the most important hour of the week",
           steps: [
-            "Year 1–2: AMC 8 past paper — 5 problems timed (8 min each). Show all working. No calculator.",
-            "Year 3: Full AMC 8 mock timed test — 25 problems in 40 minutes once per month. Weekly: 8 problems.",
-            "Year 4–5: AMC 10 problems — 5 per session. Each wrong answer gets a full written solution.",
-            "After: categorise your errors — careless mistake, knowledge gap, or strategy failure. Each needs a different fix."
+            "Grade 3–4: AMC 8 past paper from artofproblemsolving.com/community (free, search 'AMC 8 problems and solutions') — 5 problems timed (8 min each). Show all working. No calculator.",
+            "Grade 5: Full AMC 8 mock timed test — 25 problems in 40 minutes once per month. Weekly: 8 problems from a past paper.",
+            "Grade 6–7: AMC 10 problems from the same site — 5 per session. Each wrong answer gets a full written solution, not just a corrected answer.",
+            "After: categorise your errors. Are they careless mistakes, knowledge gaps, or strategy failures? Each needs a different fix — careless mistakes need slower checking, knowledge gaps need the tutor to re-teach, strategy failures need more practice with that problem type."
           ],
-          materials: ["AMC past papers printed from artofproblemsolving.com", "Timer", "Graph paper", "No calculator"], outcome: "Competition math trajectory maintained, error pattern identified", parentCue: null
+          materials: ["AMC past papers (free at artofproblemsolving.com/community — search by year and 'AMC 8' or 'AMC 10')", "Timer", "Graph paper", "No calculator"], outcome: "Competition math trajectory maintained, error pattern identified", parentCue: null
         },
         {
           who: "self", label: "Self-directed", time: "9:00–10:00 AM",
@@ -114,9 +115,9 @@ function buildDayPlan(kid, year, dayType, season) {
           activity: "60 min on the current major writing project — no starting new things",
           steps: [
             "Open your current long project: research paper, literary essay, or creative writing piece.",
-            "Today's rule: only move forward. No rewriting what you already wrote.",
+            "Today's rule: only move forward. No rewriting what you already wrote. Progress beats perfection.",
             "Minimum: 300 new words or one complete new section.",
-            "End: read the last paragraph aloud. Does it make sense? Fix one thing before stopping."
+            "End: read the last paragraph you wrote aloud. Does it make sense? Fix one thing before stopping."
           ],
           materials: ["Writing notebook or laptop", "Current draft"], outcome: "Long-form writing completion muscle built", parentCue: null
         },
@@ -126,9 +127,9 @@ function buildDayPlan(kid, year, dayType, season) {
           subject: "⭐ Enrichment", subjectStyle: "background:#f5e6e9;color:#a51c30",
           activity: "Ongoing enrichment program + 10-min parent debrief",
           steps: [
-            "Attend one ongoing weekly program: Ottawa robotics league, debate team, chess club, competitive math club, science olympiad.",
+            "Attend one ongoing weekly program: check firstinspirescanada.ca for Ottawa-area FIRST LEGO League robotics, ottawachess.ca for chess club listings, or your school's debate/math club if one exists.",
             "After the session (10 min with parent): 'What was the hardest thing today? What strategy did you try? What will you do differently next time?'",
-            "Year 4–5: If competing on a team, debrief as a coach, not a parent. Ask about team dynamics too."
+            "Grade 6–7: If competing on a team, debrief as a coach, not a parent. Ask about the team dynamics too."
           ],
           materials: ["Transport to program", "Gear for activity"], outcome: "External expertise accessed, performance debrief habit built", parentCue: "10 minutes of coaching debrief after every enrichment session is worth more than the session itself."
         },
@@ -151,7 +152,7 @@ function buildDayPlan(kid, year, dayType, season) {
           subject: "🔬 STEM", subjectStyle: "background:#e8f7ee;color:#1b5e38",
           activity: "Science fair or coding project + 30 min spike",
           steps: [
-            "STEM PROJECT (30 min): Science fair experiment — run the experiment, collect data, update notebook. OR coding project — one new feature, tested and working.",
+            "STEM PROJECT (30 min): Science fair experiment — run the experiment, collect data, update notebook (Ottawa Regional Science Fair registers through school in October-November; check ottawascience.ca for the current year's dates). OR: coding project — one new feature, tested and working, before moving on.",
             "SPIKE (30 min): Uninterrupted. Phone away. The thing you are becoming extraordinary at."
           ],
           materials: ["Science kit or laptop", "Project log"], outcome: "Long-term project advancing, spike expertise deepening", parentCue: null
@@ -174,7 +175,7 @@ function buildDayPlan(kid, year, dayType, season) {
           subject: "❤️ Service", subjectStyle: "background:#e8f7ee;color:#1b5e38",
           activity: "Monthly service activity or planning session",
           steps: [
-            "Monthly: attend a volunteering session together (Ottawa Food Bank, CHEO events, Community Harvest).",
+            "Monthly: attend a volunteering session together — check ottawafoodbank.ca for family-friendly volunteer shifts, or cheo.on.ca for CHEO Foundation family events.",
             "Non-service Saturday: sit together for 10 min. Review service log — current hours vs. year goal.",
             "Ask: 'What impact did your last session have? How do you know?'"
           ],
@@ -184,7 +185,7 @@ function buildDayPlan(kid, year, dayType, season) {
     }
   }
 
-  if (dayType === "sunday") {
+  if (dayName === "sunday") {
     if (kid === "kinder") {
       return { type: "sunday", label: label, year: year, age: age, season: season, sessions: [
         {
@@ -202,7 +203,7 @@ function buildDayPlan(kid, year, dayType, season) {
           activity: "30 min reading, then mini book report",
           steps: [
             "Read silently for 30 minutes.",
-            "Mini book report (10 min): Title, author, your rating out of 5 stars, your favourite sentence from the book, one question the book made you wonder about.",
+            "Mini book report (10 min): Title, author, your rating out of 5 stars (draw them), your favourite sentence from the book, one question the book made you wonder about.",
             "Add to reading chart. If book is finished: pick the next one from the library pile."
           ],
           materials: ["Book", "Reading response card (index cards work well)"], outcome: "Reading comprehension and response habit, rating develops taste and opinion", parentCue: null
@@ -214,8 +215,8 @@ function buildDayPlan(kid, year, dayType, season) {
           activity: "Hands-on experiment from the monthly science theme",
           steps: [
             "Pick this week's experiment from the science kit.",
-            "Sep: Rain cloud in a jar. Oct: Volcano model. Nov: Grow crystals. Dec: Snow globe. Jan: States of matter with ice, water, steam. Feb: Rainbow with a glass of water in sunlight. Mar: Plant an avocado seed. Apr: Worm farm. May: Solar oven with cardboard box.",
-            "Before: write your hypothesis. After: write one sentence about what you observed and whether your hypothesis was right."
+            "Sep: Rain cloud in a jar (water, shaving cream, blue food colouring). Oct: Baking-soda volcano model. Nov: Grow borax crystals (adult-supervised). Dec: Make a snow globe. Jan: Explore states of matter with ice, water, steam. Feb: Make a rainbow with a glass of water in sunlight. Mar: Plant an avocado or bean seed. Apr: Make a worm farm in a jar. May: Solar oven from a cardboard box and foil.",
+            "Before: write or say your hypothesis. After: write or say one sentence about what you observed and whether your hypothesis was right."
           ],
           materials: ["Experiment materials (set up Saturday)", "Science notebook"], outcome: "Consistent scientific method practice, hypothesis habit, weekly hands-on science", parentCue: null
         },
@@ -225,10 +226,10 @@ function buildDayPlan(kid, year, dayType, season) {
           subject: "🇫🇷 + 🎨", subjectStyle: "background:#faeeda;color:#92400e",
           activity: "Light French media (supporting school EFI) then unstructured creative play",
           steps: [
-            "FRENCH (20 min): French children's show, songs (Henri Des, Alain le Lait), or a French card/board game. This is light exposure supporting the school's immersion program — not new instruction, since French science/social studies/arts are already taught at school all week.",
+            "FRENCH (20 min): French children's show available on TFO.org (Ontario's free French educational broadcaster) — Caillou or Franklin et ses amis — or French songs by Henri Dès or Alain le Lait on YouTube. This is light exposure supporting the school's immersion program, not new instruction.",
             "FREE PLAY (40 min): No screens. No instructions. LEGO, drawing, costumes, forts, imaginative play. Do not interrupt it."
           ],
-          materials: ["French media or card game", "Whatever they choose to play with"], outcome: "Enjoyable reinforcement of French immersion exposure, unstructured time for creativity and executive function", parentCue: "Do not interrupt the free play. Do not suggest activities. Walk away."
+          materials: ["TFO.org or YouTube for French media", "Whatever they choose to play with"], outcome: "Enjoyable reinforcement of French immersion exposure, unstructured time for creativity and executive function", parentCue: "Do not interrupt the free play. Do not suggest activities. Walk away."
         },
         {
           who: "parent", label: "Parent", time: "4:00–4:20 PM",
@@ -278,7 +279,7 @@ function buildDayPlan(kid, year, dayType, season) {
           activity: "Sustained writing — current major project",
           steps: [
             "Open your current long-form writing project.",
-            "Today's goal: write until you have a complete new section.",
+            "Today's goal: write until you have a complete new section — a full argument, a complete body paragraph, or a finished analysis of one piece of evidence.",
             "Read aloud what you wrote. Fix one thing. Do not rewrite the whole thing.",
             "End: write one sentence about what you need to research or write next."
           ],
@@ -290,7 +291,7 @@ function buildDayPlan(kid, year, dayType, season) {
           subject: "🌍 News", subjectStyle: "background:#faeeda;color:#92400e",
           activity: "2 news articles with written analytical responses",
           steps: [
-            "Read 2 articles from CBC News, BBC News, or The Guardian (not social media).",
+            "Read 2 articles from cbc.ca/news, bbc.com/news, or theguardian.com (not social media).",
             "For each: write 3 sentences — what is the issue, who is affected and how, what should happen and why.",
             "Pick the article you found more interesting for dinner discussion tonight."
           ],
@@ -302,11 +303,11 @@ function buildDayPlan(kid, year, dayType, season) {
           subject: "🎵 Music", subjectStyle: "background:#f5e6e9;color:#a51c30",
           activity: "Full instrument session + theory workbook",
           steps: [
-            "INSTRUMENT (35 min): Full structured session. Sunday: play your full programme straight through as if in a recital.",
-            "THEORY (15 min): One page from the RCM Theory workbook at your grade level.",
-            "EAR TRAINING (10 min): Teoria.com or Royal Conservatory Ear Training app."
+            "INSTRUMENT (35 min): Full structured session as per weekday. Sunday addition: play your full programme straight through as if in a recital. Note every moment you wanted to stop — those are your work sections for the week.",
+            "THEORY (15 min): One page from the RCM Theory workbook at your grade level (available from Frederick Harris Music or your RCM teacher). Check answers; understand any wrong one before moving on.",
+            "EAR TRAINING (10 min): Use teoria.com (free) for interval or chord recognition exercises."
           ],
-          materials: ["Instrument", "RCM Theory workbook", "Ear training app or Teoria.com"], outcome: "Performance-mode practice builds stage readiness, theory and ear training systematic", parentCue: null
+          materials: ["Instrument", "RCM Theory workbook", "teoria.com (free)"], outcome: "Performance-mode practice builds stage readiness, theory and ear training systematic", parentCue: null
         },
         {
           who: "self", label: "Self-directed", time: "2:00–3:30 PM",
@@ -314,13 +315,13 @@ function buildDayPlan(kid, year, dayType, season) {
           subject: "🏆 Competition", subjectStyle: "background:#f5e6e9;color:#a51c30",
           activity: "Targeted competition preparation",
           steps: [
-            "Year 1: 8 AMC 8 problems from a past paper. Timed. Write up solutions to all wrong answers.",
-            "Year 2: 10 AMC 8 problems. Identify your weakest category and do 5 extra problems in it.",
-            "Year 3: AMC 8 full mock once per month. Otherwise: 8 AMC 8 or GAUSS problems.",
-            "Year 4: AMC 10 level — 5 problems, timed, full solution write-up for every wrong answer.",
-            "Year 5: AMC 10 — attempt one past paper start to finish. Score it. Compare to previous attempt."
+            "Grade 3: 8 AMC 8 problems from a past paper (artofproblemsolving.com/community). Timed. Write up solutions to all wrong answers.",
+            "Grade 4: 10 AMC 8 problems. Identify your weakest category (counting, geometry, algebra, number theory) and do 5 extra problems in that category.",
+            "Grade 5: AMC 8 full mock once per month; otherwise 8 AMC 8 or Gauss-style problems (cemc.uwaterloo.ca has free past Gauss contest papers).",
+            "Grade 6: AMC 10 level — 5 problems, timed, full solution write-up for every wrong answer.",
+            "Grade 7: AMC 10 — attempt one full past paper start to finish. Score it. Compare to the previous attempt."
           ],
-          materials: ["Printed past papers", "Graph paper", "Timer"], outcome: "Systematic competition improvement — this weekly session separates top competitors from participants", parentCue: null
+          materials: ["Printed past papers (artofproblemsolving.com/community, cemc.uwaterloo.ca)", "Graph paper", "Timer"], outcome: "Systematic competition improvement — this weekly session is what separates top competitors from participants", parentCue: null
         },
         {
           who: "self", label: "Self-directed", time: "3:30–5:00 PM",
@@ -329,7 +330,7 @@ function buildDayPlan(kid, year, dayType, season) {
           activity: "Friend time and outdoor physical activity",
           steps: [
             "Invite a friend over or go out. Physical activity — bikes, skating, sport.",
-            "Social time is not wasted time. Emotional intelligence and leadership are built in real peer interactions.",
+            "Social time is not wasted time. Emotional intelligence, leadership, and communication are built in real peer interactions.",
             "Ottawa Sundays in season: Gatineau Park, Rideau River paths, Mooney's Bay, Petrie Island."
           ],
           materials: ["Outdoor gear", "Transport"], outcome: "Social intelligence built, physical health maintained, mental rest from focused work", parentCue: null

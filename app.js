@@ -5,22 +5,13 @@ function renderYearCard(kid, y) {
   var ageBase = kid === "kinder" ? 5 : 8;
   var age = ageBase + (y - 1);
   var containerId = kid + "-content";
+  var gradeNum = kid === "kinder" ? y : y + 2;
 
-  var schedHtml = data.schedule.map(function(s) {
-    return '<div class="sched-block">' +
-      '<div class="sched-block-header">' +
-        '<span class="sched-who ' + s.who + '">' + s.label + '</span>' +
-        '<span class="sched-time">' + s.time + '</span>' +
-        '<span class="sched-title">' + s.title + '</span>' +
-        '<span class="sched-subject" style="' + s.subjectStyle + '">' + s.subject + '</span>' +
-      '</div>' +
-      '<div class="sched-body">' +
-        '<div class="sched-activity">' + s.activity + '</div>' +
-        '<ul class="sched-steps">' + s.steps.map(function(st) { return '<li>' + st + '</li>'; }).join('') + '</ul>' +
-        '<div class="sched-materials"><span style="margin-right:4px;color:var(--ink-muted);font-weight:600;">Materials:</span>' + s.materials.map(function(m) { return '<span class="mat-chip">' + m + '</span>'; }).join('') + '</div>' +
-        '<div class="sched-outcome">&#10003; Session outcome: ' + s.outcome + '</div>' +
-        (s.parentCue ? '<div style="font-size:12px;background:#fff8f8;border-left:3px solid #f5c0c8;padding:6px 10px;border-radius:0 5px 5px 0;margin-top:.6rem;color:#7a1422;">Parent note: ' + s.parentCue + '</div>' : '') +
-      '</div>' +
+  var rhythmHtml = data.weeklyRhythm.map(function(r) {
+    return '<div class="rhythm-row">' +
+      '<div class="rhythm-day">' + r.day + '</div>' +
+      '<div class="rhythm-focus">' + r.focus + '</div>' +
+      '<div class="rhythm-secondary">' + r.secondary + '</div>' +
     '</div>';
   }).join('');
 
@@ -32,22 +23,23 @@ function renderYearCard(kid, y) {
   document.getElementById(containerId).innerHTML =
     '<div class="plan-card">' +
       '<div class="plan-header">' +
-        '<div class="plan-tag">' + (kid === "kinder" ? "Grade " + y : "Grade " + (y + 2)) + ' &middot; Age ' + age + '&ndash;' + (age + 1) + '</div>' +
+        '<div class="plan-tag">Grade ' + gradeNum + ' &middot; Age ' + age + '&ndash;' + (age + 1) + '</div>' +
         '<div class="plan-title">' + data.label + '</div>' +
         '<div class="plan-theme">' + data.theme + '</div>' +
       '</div>' +
       (data.curriculumNote ? '<div class="curriculum-note">📋 Ontario curriculum context: ' + data.curriculumNote + '</div>' : '') +
       '<div class="coach-tip">Coach note: ' + data.tip + '</div>' +
       '<div class="sched-section">' +
-        '<div class="sched-label">Sample weekday schedule &mdash; every session detailed</div>' +
-        schedHtml +
+        '<div class="sched-label">This year&rsquo;s weekly rhythm &mdash; each weekday has a different focus so nothing gets crammed</div>' +
+        '<div class="rhythm-table">' + rhythmHtml + '</div>' +
+        '<div class="rhythm-note">Open the <strong>Day-by-Day Explorer</strong> below to see every session, every step, and every resource for any specific day of this year.</div>' +
       '</div>' +
       '<div class="books-row">' +
         '<div class="sched-label">Essential reading this year</div>' +
         '<div class="books-inner">' + booksHtml + '</div>' +
       '</div>' +
       '<div class="mile-row">' +
-        '<div class="sched-label">' + (kid === "kinder" ? "Grade " + y : "Grade " + (y + 2)) + ' milestones &mdash; check these off by June</div>' +
+        '<div class="sched-label">Grade ' + gradeNum + ' milestones &mdash; check these off by June</div>' +
         '<div class="mile-grid">' + milestonesHtml + '</div>' +
       '</div>' +
     '</div>';
@@ -75,18 +67,19 @@ function switchKid(kid) {
 function renderDay() {
   var kid = document.getElementById("sel-kid").value;
   var year = document.getElementById("sel-year").value;
-  var dayType = document.getElementById("sel-day").value;
+  var dayName = document.getElementById("sel-day").value;
   var season = document.getElementById("sel-season").value;
 
-  var plan = buildDayPlan(kid, year, dayType, season);
+  var plan = buildDayPlan(kid, year, dayName, season);
   if (!plan) {
     document.getElementById("day-output").innerHTML = '<p style="color:var(--ink-muted);padding:1rem 0">No data for this combination.</p>';
     return;
   }
 
-  var dayNames = { weekday: "Weekday", saturday: "Saturday", sunday: "Sunday" };
+  var dayNames = { monday: "Monday", tuesday: "Tuesday", wednesday: "Wednesday", thursday: "Thursday", friday: "Friday", saturday: "Saturday", sunday: "Sunday" };
   var seasonNames = { fall: "Fall (Sep&ndash;Dec)", winter: "Winter (Jan&ndash;Mar)", spring: "Spring (Apr&ndash;Jun)", summer: "Summer (Jul&ndash;Aug)" };
-  var isWeekend = dayType !== "weekday";
+  var isWeekend = (dayName === "saturday" || dayName === "sunday");
+  var gradeNum = kid === "kinder" ? parseInt(year) : parseInt(year) + 2;
 
   var sessionsHtml = plan.sessions.map(function(s) {
     return '<div class="session-block">' +
@@ -108,8 +101,8 @@ function renderDay() {
     '<div class="detail-card">' +
       '<div class="detail-header">' +
         '<div>' +
-          '<div class="detail-day">' + dayNames[dayType] + ' &middot; ' + seasonNames[season] + '</div>' +
-          '<div class="detail-meta">' + plan.label + ' &middot; ' + (kid === "kinder" ? "Grade " + year : "Grade " + (parseInt(year) + 2)) + ' &middot; Age ' + plan.age + ' &middot; Ottawa, Canada</div>' +
+          '<div class="detail-day">' + dayNames[dayName] + ' &middot; ' + seasonNames[season] + '</div>' +
+          '<div class="detail-meta">' + plan.label + ' &middot; Grade ' + gradeNum + ' &middot; Age ' + plan.age + ' &middot; Ottawa, Canada</div>' +
         '</div>' +
         '<span class="detail-badge ' + (isWeekend ? "badge-weekend" : "badge-school") + '">' + (isWeekend ? "Enrichment day" : "School day") + '</span>' +
       '</div>' +
